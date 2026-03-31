@@ -1,37 +1,171 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Reaper AI - Login</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        body { font-family: Arial; margin: 0; background: #0a0a0a; color: white; }
-        header, footer { background: black; text-align: center; padding: 20px; }
-        nav { text-align: center; padding: 15px; background: #111; }
-        nav a { color: #4da6ff; margin: 15px; text-decoration: none; font-size: 18px; }
-        .container { max-width: 500px; margin: auto; padding: 40px 20px; }
-        form { background: #111; padding: 25px; border-radius: 10px; }
-        input { width: 100%; padding: 12px; margin-bottom: 15px; border: none; border-radius: 6px; }
-        button { background: #4da6ff; color: black; padding: 12px 20px; border: none; font-weight: bold; border-radius: 6px; width: 100%; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Johnson Strategic Solutions | Client Login</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(rgba(5,10,20,0.85), rgba(5,10,20,0.95)),
+                url("https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1600&q=80");
+    background-size: cover;
+    background-position: center;
+    color: white;
+}
+
+.navbar {
+    background: rgba(10,15,25,0.95);
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.nav-links a {
+    color: #7fb8ff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.container {
+    max-width: 520px;
+    margin: 90px auto;
+    background: rgba(12,18,30,0.9);
+    padding: 34px;
+    border-radius: 15px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    border: 1px solid rgba(77,166,255,0.14);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 12px;
+    font-size: 34px;
+}
+
+p {
+    text-align: center;
+    color: #cfe3ff;
+    margin-bottom: 28px;
+    line-height: 1.6;
+}
+
+label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 6px;
+    font-weight: bold;
+    color: #dcecff;
+}
+
+input {
+    width: 100%;
+    padding: 13px;
+    border-radius: 8px;
+    border: none;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+.button {
+    display: inline-block;
+    background: linear-gradient(135deg,#4da6ff,#1e7de0);
+    color: #08111d;
+    padding: 14px 22px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    margin-top: 18px;
+    width: 100%;
+}
+
+.secondary-link {
+    display: block;
+    text-align: center;
+    margin-top: 18px;
+    color: #7fb8ff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.note-box {
+    margin-top: 24px;
+    padding: 16px;
+    border-radius: 12px;
+    background: rgba(255,255,255,0.06);
+    color: #d8e8ff;
+    font-size: 14px;
+    line-height: 1.6;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .container {
+        margin: 50px 18px;
+        padding: 26px;
+    }
+
+    .navbar {
+        gap: 15px;
+    }
+}
+</style>
 </head>
+
 <body>
-<header>Reaper AI</header>
-<nav>
-    <a href="index.html">Home</a>
-    <a href="services.html">Services</a>
-    <a href="pricing.html">Pricing</a>
-    <a href="intake.html">Client Intake</a>
-    <a href="contact.html">Contact</a>
-    <a href="login.html">Login</a>
-</nav>
+
+<div class="navbar">
+    <div class="logo">Johnson Strategic Solutions</div>
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="intake.html">Start Here</a>
+        <a href="login.html">Client Login</a>
+    </div>
+</div>
+
 <div class="container">
     <h1>Client Login</h1>
-    <form>
-        <input type="email" placeholder="Email">
-        <input type="password" placeholder="Password">
-        <button type="submit">Log In</button>
+    <p>
+        Secure access for active clients. Log in to view your dashboard, files, updates,
+        and future platform tools.
+    </p>
+
+    <form action="dashboard.html" method="GET">
+        <label>Email Address</label>
+        <input type="email" name="email" placeholder="Enter your email" required>
+
+        <label>Password</label>
+        <input type="password" name="password" placeholder="Enter your password" required>
+
+        <button type="submit" class="button">Log In</button>
     </form>
+
+    <a href="intake.html" class="secondary-link">Not a client yet? Start here</a>
+
+    <div class="note-box">
+        This is the front-end login page for the JSS platform.
+        Full secure client authentication can be connected later when the portal backend is built.
+    </div>
 </div>
-<footer>© Reaper AI</footer>
+
 </body>
 </html>
