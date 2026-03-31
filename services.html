@@ -1,35 +1,290 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <title>Reaper AI - Services</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        body { font-family: Arial; margin: 0; background: #0a0a0a; color: white; }
-        header, footer { background: black; text-align: center; padding: 20px; }
-        nav { text-align: center; padding: 15px; background: #111; }
-        nav a { color: #4da6ff; margin: 15px; text-decoration: none; font-size: 18px; }
-        .container { max-width: 1000px; margin: auto; padding: 40px 20px; }
-        .card { background: #111; padding: 20px; margin-bottom: 20px; border-radius: 10px; }
-    </style>
+<html lang="en">Johnson Strategic Solutions | Credit Repair & Business Funding</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(rgba(5,10,20,0.85), rgba(5,10,20,0.95)),
+                url("https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1600&q=80");
+    background-size: cover;
+    background-position: center;
+    color: white;
+}
+
+.navbar {
+    background: rgba(10,15,25,0.95);
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.nav-links a {
+    color: #7fb8ff;
+    text-decoration: none;
+    margin-left: 20px;
+    font-weight: bold;
+}
+
+.hero {
+    text-align: center;
+    padding: 90px 20px 40px;
+}
+
+.hero h1 {
+    font-size: 44px;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    font-size: 18px;
+    color: #cfe3ff;
+    max-width: 780px;
+    margin: auto;
+    line-height: 1.6;
+}
+
+.services-section {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 30px 20px 80px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+}
+
+.service-card {
+    background: rgba(12,18,30,0.9);
+    padding: 28px;
+    border-radius: 14px;
+    box-shadow: 0 14px 35px rgba(0,0,0,0.45);
+    border: 1px solid rgba(77,166,255,0.12);
+}
+
+.service-card h2 {
+    margin-top: 0;
+    margin-bottom: 14px;
+    font-size: 24px;
+    color: #ffffff;
+}
+
+.service-card p {
+    color: #d8e8ff;
+    line-height: 1.6;
+    margin-bottom: 18px;
+}
+
+.service-card ul {
+    padding-left: 18px;
+    margin: 0 0 22px;
+    color: #cfe3ff;
+    line-height: 1.7;
+}
+
+.button {
+    display: inline-block;
+    background: linear-gradient(135deg,#4da6ff,#1e7de0);
+    color: #08111d;
+    padding: 12px 18px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.bottom-cta {
+    max-width: 1000px;
+    margin: 0 auto 80px;
+    padding: 0 20px;
+}
+
+.cta-box {
+    background: rgba(12,18,30,0.92);
+    border: 1px solid rgba(77,166,255,0.15);
+    border-radius: 16px;
+    padding: 32px;
+    text-align: center;
+    box-shadow: 0 14px 35px rgba(0,0,0,0.45);
+}
+
+.cta-box h3 {
+    margin-top: 0;
+    font-size: 30px;
+    margin-bottom: 12px;
+}
+
+.cta-box p {
+    color: #d7e6ff;
+    line-height: 1.6;
+    margin-bottom: 22px;
+}
+
+.footer {
+    text-align: center;
+    padding: 24px 20px 30px;
+    color: rgba(255,255,255,0.65);
+    font-size: 13px;
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        gap: 15px;
+    }
+
+    .nav-links {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .nav-links a {
+        margin-left: 0;
+    }
+
+    .hero h1 {
+        font-size: 34px;
+    }
+}
+</style>
 </head>
+
 <body>
-<header>Reaper AI</header>
-<nav>
-    <a href="index.html">Home</a>
-    <a href="services.html">Services</a>
-    <a href="pricing.html">Pricing</a>
-    <a href="intake.html">Client Intake</a>
-    <a href="contact.html">Contact</a>
-    <a href="login.html">Login</a>
-</nav>
-<div class="container">
-    <h1>Services</h1>
-    <div class="card"><h2>Credit Report Analysis</h2><p>Review of reporting issues, inaccurate data points, and strategic dispute direction.</p></div>
-    <div class="card"><h2>Dispute Strategy</h2><p>Structured dispute planning for credit reporting challenges and account review issues.</p></div>
-    <div class="card"><h2>Business Funding Blueprint</h2><p>Business setup, vendor sequencing, and funding strategy guidance.</p></div>
-    <div class="card"><h2>Business Structure Guidance</h2><p>Entity setup direction, positioning, and foundational business readiness.</p></div>
-    <div class="card"><h2>Automation Consulting</h2><p>Help building digital systems, workflows, and automation for operations.</p></div>
+
+<div class="navbar">
+    <div class="logo">Reaper AI</div>
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="intake.html">Client Intake</a>
+        <a href="contact.html">Contact</a>
+        <a href="login.html">Login</a>
+    </div>
 </div>
-<footer>© Reaper AI</footer>
+
+<div class="hero">
+    <h1>Services</h1>
+    <p>
+        Johnson Strategic Solutions is built to help clients clean up credit issues, build funding pathways,
+        structure businesses correctly, and create systems that move with precision.
+    </p>
+</div>
+
+<div class="services-section">
+
+    <div class="service-card">
+        <h2>Credit Repair</h2>
+        <p>
+            Strategic credit analysis and dispute planning for inaccurate, unverifiable,
+            incomplete, or improperly reported information.
+        </p>
+        <ul>
+            <li>Credit report review</li>
+            <li>Dispute strategy guidance</li>
+            <li>Personal information cleanup</li>
+            <li>Account-by-account analysis</li>
+        </ul>
+        <a href="intake.html" class="button">Start Intake</a>
+    </div>
+
+    <div class="service-card">
+        <h2>Business Funding</h2>
+        <p>
+            Funding blueprint services for business owners who need structure, sequence,
+            and clear execution steps to position for capital.
+        </p>
+        <ul>
+            <li>Funding readiness review</li>
+            <li>Business credit positioning</li>
+            <li>Vendor and lender sequencing</li>
+            <li>Funding roadmap strategy</li>
+        </ul>
+        <a href="intake.html" class="button">Start Intake</a>
+    </div>
+
+    <div class="service-card">
+        <h2>Business Setup</h2>
+        <p>
+            Foundational business setup guidance to help you structure correctly before
+            moving into growth, credit, and funding plays.
+        </p>
+        <ul>
+            <li>LLC and entity positioning</li>
+            <li>EIN and business profile alignment</li>
+            <li>Banking and documentation guidance</li>
+            <li>Business credit foundation planning</li>
+        </ul>
+        <a href="intake.html" class="button">Start Intake</a>
+    </div>
+
+    <div class="service-card">
+        <h2>Automation / AI Systems</h2>
+        <p>
+            Help building websites, workflows, client systems, automation flows, and digital
+            infrastructure that saves time and scales operations.
+        </p>
+        <ul>
+            <li>Website system planning</li>
+            <li>Client intake automation</li>
+            <li>CRM workflow ideas</li>
+            <li>AI-assisted business systems</li>
+        </ul>
+        <a href="intake.html" class="button">Start Intake</a>
+    </div>
+
+    <div class="service-card">
+        <h2>Consultation</h2>
+        <p>
+            Direct strategy consultation for people who need clarity before purchasing a
+            larger service or want help choosing the right path.
+        </p>
+        <ul>
+            <li>One-on-one planning</li>
+            <li>Service matching</li>
+            <li>Action-step direction</li>
+            <li>Execution guidance</li>
+        </ul>
+        <a href="pricing.html" class="button">View Pricing</a>
+    </div>
+
+    <div class="service-card">
+        <h2>Custom Solutions</h2>
+        <p>
+            Some situations are not basic. When the problem is layered, the solution needs to
+            be built around the actual goal, not a generic package.
+        </p>
+        <ul>
+            <li>Custom service path</li>
+            <li>Complex scenario review</li>
+            <li>Tailored strategy buildout</li>
+            <li>Scope-based pricing</li>
+        </ul>
+        <a href="contact.html" class="button">Contact Us</a>
+    </div>
+
+</div>
+
+<div class="bottom-cta">
+    <div class="cta-box">
+        <h3>Need the right path fast?</h3>
+        <p>
+            Start with the intake form and state exactly what you need. Once reviewed,
+            the right service path can be assigned based on your goals and situation.
+        </p>
+        <a href="intake.html" class="button">Complete Intake Form</a>
+    </div>
+</div>
+
+<div class="footer">
+    © Johnson Strategic Solutions
+</div>
+
 </body>
 </html>
