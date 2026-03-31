@@ -1,80 +1,144 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Reaper AI</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        body {
-            font-family: Arial;
-            margin: 0;
-            background-color: #0a0a0a;
-            color: white;
-        }
-        header {
-            background: black;
-            padding: 20px;
-            text-align: center;
-            font-size: 28px;
-            font-weight: bold;
-        }
-        nav {
-            text-align: center;
-            padding: 15px;
-            background: #111;
-        }
-        nav a {
-            color: #4da6ff;
-            margin: 15px;
-            text-decoration: none;
-            font-size: 18px;
-        }
-        .hero {
-            text-align: center;
-            padding: 80px 20px;
-        }
-        .button {
-            background: #4da6ff;
-            padding: 15px 25px;
-            color: black;
-            text-decoration: none;
-            font-weight: bold;
-            margin: 10px;
-            display: inline-block;
-        }
-        footer {
-            text-align: center;
-            padding: 30px;
-            background: black;
-            margin-top: 40px;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reaper AI</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(rgba(5,10,20,0.85), rgba(5,10,20,0.95)),
+                url("https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1600&q=80");
+    background-size: cover;
+    background-position: center;
+    color: white;
+}
+
+/* NAVBAR */
+.navbar {
+    background: rgba(10,15,25,0.95);
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.nav-links a {
+    color: #7fb8ff;
+    text-decoration: none;
+    margin-left: 20px;
+    font-weight: bold;
+}
+
+/* HERO */
+.hero {
+    text-align: center;
+    padding: 120px 20px 80px;
+}
+
+.hero h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 20px;
+    color: #cfe3ff;
+    max-width: 700px;
+    margin: auto;
+}
+
+.buttons {
+    margin-top: 30px;
+}
+
+.button {
+    display: inline-block;
+    background: linear-gradient(135deg,#4da6ff,#1e7de0);
+    color: #08111d;
+    padding: 14px 22px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: bold;
+    margin: 10px;
+}
+
+/* SERVICES SECTION */
+.services {
+    max-width: 1000px;
+    margin: auto;
+    padding: 40px 20px 80px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background: rgba(12,18,30,0.9);
+    padding: 25px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+
+.card h3 {
+    margin-bottom: 10px;
+}
+</style>
 </head>
 
 <body>
 
-<header>
-    Reaper AI
-</header>
-
-<nav>
-    <a href="index.html">Home</a>
-<a href="services.html">Services</a>
-<a href="pricing.html">Pricing</a>
-<a href="intake.html">Client Intake</a>
-<a href="contact.html">Contact</a>
-<a href="login.html">Login</a>
-</nav>
-
-<div class="hero">
-    <h1>Reaper AI Platform</h1>
-    <p>Credit Strategy, Business Funding, Automation, and Digital Systems</p>
-    <a class="button" href="#">Get Started</a>
-    <a class="button" href="#">Book Consultation</a>
+<div class="navbar">
+    <div class="logo">Reaper AI</div>
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="intake.html">Client Intake</a>
+        <a href="contact.html">Contact</a>
+        <a href="login.html">Login</a>
+    </div>
 </div>
 
-<footer>
-    © Reaper AI
-</footer>
+<div class="hero">
+    <h1>Reaper AI</h1>
+    <p>Credit. Funding. Business. Automation. Strategy. Execution.</p>
+
+    <div class="buttons">
+        <a href="intake.html" class="button">Start Here</a>
+        <a href="pricing.html" class="button">View Pricing</a>
+    </div>
+</div>
+
+<div class="services">
+    <div class="card">
+        <h3>Credit Repair</h3>
+        <p>Strategic credit report cleanup using consumer laws and dispute strategies.</p>
+    </div>
+
+    <div class="card">
+        <h3>Business Funding</h3>
+        <p>Funding blueprint and structure for business credit and capital access.</p>
+    </div>
+
+    <div class="card">
+        <h3>Business Setup</h3>
+        <p>LLC structure, EIN, banking, vendor accounts, and business credit building.</p>
+    </div>
+
+    <div class="card">
+        <h3>Automation / AI</h3>
+        <p>Automate your business systems, intake, CRM, and workflows.</p>
+    </div>
+</div>
 
 </body>
 </html>
