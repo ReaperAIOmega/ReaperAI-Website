@@ -1,277 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Johnson Strategic Solutions | Services</title>
-
-<style>
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: linear-gradient(rgba(5,10,20,0.85), rgba(5,10,20,0.95)),
-                url("https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1600&q=80");
-    background-size: cover;
-    background-position: center;
-    color: white;
-}
-
-.navbar {
-    background: rgba(10,15,25,0.95);
-    padding: 15px 30px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-}
-
-.logo {
-    font-size: 24px;
-    font-weight: bold;
-}
-
-.nav-links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-}
-
-.nav-links a {
-    color: #7fb8ff;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.hero {
-    text-align: center;
-    padding: 90px 20px 40px;
-}
-
-.hero h1 {
-    font-size: 44px;
-    margin-bottom: 15px;
-}
-
-.hero p {
-    font-size: 18px;
-    color: #cfe3ff;
-    max-width: 780px;
-    margin: auto;
-    line-height: 1.6;
-}
-
-.hero-buttons {
-    margin-top: 20px;
-    display: flex;
-    gap: 14px;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.services-section {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 30px 20px 80px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 24px;
-}
-
-.service-card {
-    background: rgba(12,18,30,0.9);
-    padding: 28px;
-    border-radius: 14px;
-    box-shadow: 0 14px 35px rgba(0,0,0,0.45);
-    border: 1px solid rgba(77,166,255,0.12);
-}
-
-.service-card h2 {
-    margin-top: 0;
-    margin-bottom: 14px;
-    font-size: 24px;
-}
-
-.service-card p {
-    color: #d8e8ff;
-    line-height: 1.6;
-    margin-bottom: 18px;
-}
-
-.service-card ul {
-    padding-left: 18px;
-    margin: 0 0 22px;
-    color: #cfe3ff;
-    line-height: 1.7;
-}
-
-.button {
-    display: inline-block;
-    background: linear-gradient(135deg,#4da6ff,#1e7de0);
-    color: #08111d;
-    padding: 12px 18px;
-    border-radius: 10px;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.bottom-cta {
-    max-width: 1000px;
-    margin: 0 auto 80px;
-    padding: 0 20px;
-}
-
-.cta-box {
-    background: rgba(12,18,30,0.92);
-    border: 1px solid rgba(77,166,255,0.15);
-    border-radius: 16px;
-    padding: 32px;
-    text-align: center;
-    box-shadow: 0 14px 35px rgba(0,0,0,0.45);
-}
-
-.cta-box h3 {
-    margin-top: 0;
-    font-size: 30px;
-    margin-bottom: 12px;
-}
-
-.cta-box p {
-    color: #d7e6ff;
-    line-height: 1.6;
-    margin-bottom: 22px;
-}
-
-.footer {
-    text-align: center;
-    padding: 24px 20px 30px;
-    color: rgba(255,255,255,0.65);
-    font-size: 13px;
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Johnson Strategic Solutions | Services</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
+  <div id="navbar" data-navbar="navbar-public.html"></div>
 
-<div class="navbar">
-    <div class="logo">Johnson Strategic Solutions</div>
-    <div class="nav-links">
-        <a href="index.html">Home</a>
-        <a href="services.html">Services</a>
-        <a href="credit-repair.html">Credit Repair</a>
-        <a href="business-setup.html">Business Setup</a>
-        <a href="funding.html">Funding</a>
-        <a href="automation.html">Automation</a>
-        <a href="pricing.html">Pricing</a>
-        <a href="intake.html">Start Here</a>
-        <a href="login.html">Client Login</a>
+  <div class="hero">
+    <div class="hero-box center">
+      <h1>Services</h1>
+      <p>
+        Johnson Strategic Solutions helps clients clean up credit, build funding pathways,
+        structure businesses correctly, create automation systems, and launch client-ready platforms.
+      </p>
     </div>
-</div>
+  </div>
 
-<div class="hero">
-    <h1>Services</h1>
-    <p>
-        Johnson Strategic Solutions helps clients clean up credit issues, build funding pathways,
-        structure businesses correctly, and create systems that move with precision.
-    </p>
-</div>
-
-<div class="services-section">
-
-    <div class="service-card">
+  <div class="section">
+    <div class="grid-6">
+      <div class="card">
         <h2>Credit Repair</h2>
         <p>Strategic credit analysis and dispute planning.</p>
         <ul>
-            <li>Credit report review</li>
-            <li>Dispute strategy guidance</li>
-            <li>Personal info cleanup</li>
-            <li>Account analysis</li>
+          <li>Credit report review</li>
+          <li>Dispute strategy guidance</li>
+          <li>Personal information cleanup</li>
+          <li>Account analysis</li>
         </ul>
         <a href="credit-repair.html" class="button">Explore</a>
-    </div>
+      </div>
 
-    <div class="service-card">
+      <div class="card">
         <h2>Business Setup</h2>
-        <p>Build the correct foundation for business credit and funding.</p>
+        <p>Build the right foundation for business credit and funding.</p>
         <ul>
-            <li>LLC and entity structure</li>
-            <li>EIN and business profile</li>
-            <li>Banking setup</li>
-            <li>Business credit foundation</li>
+          <li>Entity structure</li>
+          <li>EIN and profile setup</li>
+          <li>Banking positioning</li>
+          <li>Business credit foundation</li>
         </ul>
         <a href="business-setup.html" class="button">Explore</a>
-    </div>
+      </div>
 
-    <div class="service-card">
+      <div class="card">
         <h2>Business Funding</h2>
         <p>Funding blueprint and capital strategy planning.</p>
         <ul>
-            <li>Funding readiness review</li>
-            <li>Vendor and lender sequence</li>
-            <li>Funding roadmap</li>
-            <li>Business credit strategy</li>
+          <li>Funding readiness review</li>
+          <li>Vendor and lender sequence</li>
+          <li>Funding roadmap</li>
+          <li>Strategy support</li>
         </ul>
         <a href="funding.html" class="button">Explore</a>
-    </div>
+      </div>
 
-    <div class="service-card">
-        <h2>Automation / AI Systems</h2>
+      <div class="card">
+        <h2>Automation</h2>
         <p>Systems and automation to streamline business operations.</p>
         <ul>
-            <li>Website systems</li>
-            <li>Client intake automation</li>
-            <li>Workflow automation</li>
-            <li>AI business tools</li>
+          <li>Workflow planning</li>
+          <li>Lead capture systems</li>
+          <li>Automation opportunities</li>
+          <li>AI business tools</li>
         </ul>
         <a href="automation.html" class="button">Explore</a>
-    </div>
+      </div>
 
-    <div class="service-card">
-        <h2>Consultation</h2>
-        <p>Strategy consultation and planning sessions.</p>
+      <div class="card">
+        <h2>Platform Setup</h2>
+        <p>Websites, intake systems, dashboards, portals, and business infrastructure.</p>
         <ul>
-            <li>Planning session</li>
-            <li>Service matching</li>
-            <li>Execution strategy</li>
-            <li>Business direction</li>
+          <li>Website buildout</li>
+          <li>Client dashboard structure</li>
+          <li>Admin dashboard structure</li>
+          <li>Operational platform planning</li>
+        </ul>
+        <a href="platform-setup.html" class="button">Explore</a>
+      </div>
+
+      <div class="card">
+        <h2>Consultation</h2>
+        <p>Strategy consultation and service matching.</p>
+        <ul>
+          <li>One-on-one planning</li>
+          <li>Service path matching</li>
+          <li>Execution strategy</li>
+          <li>Next-step clarity</li>
         </ul>
         <a href="pricing.html" class="button">View Pricing</a>
+      </div>
     </div>
+  </div>
 
-    <div class="service-card">
-        <h2>Custom Solutions</h2>
-        <p>Complex situations and custom service paths.</p>
-        <ul>
-            <li>Custom strategy</li>
-            <li>Complex scenario review</li>
-            <li>Tailored services</li>
-            <li>Scope-based pricing</li>
-        </ul>
+  <div class="section">
+    <div class="cta-box center">
+      <h3>Choose Your Service Path</h3>
+      <p>
+        Select the service that best fits your situation, or start with the intake form and the correct path will be assigned after review.
+      </p>
+      <div class="hero-buttons">
+        <a href="credit-repair.html" class="button">Credit Repair</a>
+        <a href="business-setup.html" class="button">Business Setup</a>
+        <a href="funding.html" class="button">Funding</a>
+        <a href="automation.html" class="button">Automation</a>
+        <a href="platform-setup.html" class="button">Platform Setup</a>
         <a href="intake.html" class="button">Start Intake</a>
+      </div>
     </div>
+  </div>
 
-</div>
+  <div class="footer">© Johnson Strategic Solutions</div>
 
-<div class="bottom-cta">
-    <div class="cta-box">
-        <h3>Choose Your Service Path</h3>
-        <p>
-            Select the service that best fits your situation, or start with the intake form
-            and we will determine the correct path after review.
-        </p>
-
-        <div class="hero-buttons">
-            <a href="credit-repair.html" class="button">Credit Repair</a>
-            <a href="business-setup.html" class="button">Business Setup</a>
-            <a href="funding.html" class="button">Funding</a>
-            <a href="automation.html" class="button">Automation</a>
-            <a href="intake.html" class="button">Start Intake</a>
-        </div>
-    </div>
-</div>
-
-<div class="footer">
-    © Johnson Strategic Solutions
-</div>
-
+  <script src="load-navbar.js"></script>
 </body>
 </html>
