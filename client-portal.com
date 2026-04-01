@@ -26,14 +26,14 @@ body {
 }
 
 .logo {
-    font-size: 20px;
+    font-size: 24px;
     font-weight: bold;
 }
 
 .nav-links {
     display: flex;
     flex-wrap: wrap;
-    gap: 16px;
+    gap: 12px;
 }
 
 .nav-links a {
@@ -42,41 +42,44 @@ body {
     font-weight: bold;
 }
 
-.hero {
-    max-width: 1100px;
-    margin: 70px auto 30px;
+.container {
+    max-width: 1200px;
+    margin: 50px auto 80px;
     padding: 0 20px;
-    text-align: center;
+}
+
+.hero {
+    background: rgba(12,18,30,0.9);
+    border: 1px solid rgba(77,166,255,0.12);
+    border-radius: 16px;
+    padding: 30px;
+    box-shadow: 0 18px 45px rgba(0,0,0,0.45);
+    margin-bottom: 24px;
 }
 
 .hero h1 {
-    font-size: 42px;
-    margin-bottom: 12px;
+    margin: 0 0 10px;
+    font-size: 36px;
 }
 
 .hero p {
-    color: #d5e7ff;
-    font-size: 18px;
-    max-width: 760px;
-    margin: 0 auto;
+    margin: 0;
+    color: #d7e6ff;
     line-height: 1.6;
 }
 
-.portal-grid {
-    max-width: 1100px;
-    margin: 30px auto 80px;
-    padding: 0 20px;
+.grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 22px;
 }
 
 .card {
-    background: rgba(12,18,30,0.9);
-    padding: 26px;
-    border-radius: 14px;
-    box-shadow: 0 18px 45px rgba(0,0,0,0.45);
+    background: rgba(12,18,30,0.92);
     border: 1px solid rgba(77,166,255,0.12);
+    border-radius: 14px;
+    padding: 26px;
+    box-shadow: 0 18px 45px rgba(0,0,0,0.45);
 }
 
 .card h3 {
@@ -99,21 +102,6 @@ body {
     border-radius: 10px;
     text-decoration: none;
     font-weight: bold;
-}
-
-.note-box {
-    max-width: 1100px;
-    margin: 0 auto 60px;
-    padding: 0 20px;
-}
-
-.note-box-inner {
-    background: rgba(255,255,255,0.06);
-    border-radius: 14px;
-    padding: 22px;
-    color: #d8e8ff;
-    line-height: 1.6;
-    text-align: center;
 }
 
 .footer {
@@ -139,51 +127,60 @@ body {
     </div>
 </div>
 
-<div class="hero">
-    <h1>Client Portal</h1>
-    <p>
-        This portal is the central access point for active clients. As the platform expands,
-        this is where clients will view progress, documents, services, and account activity.
-    </p>
-</div>
+<div class="container">
 
-<div class="portal-grid">
-
-    <div class="card">
-        <h3>Client Dashboard</h3>
-        <p>View account overview, progress updates, service status, and next steps.</p>
-        <a href="dashboard.html" class="button">Open Dashboard</a>
+    <div class="hero">
+        <h1>Client Portal</h1>
+        <p>
+            This portal is where clients access services, documents, invoices, and account updates.
+            Use the sections below to navigate through your services and next steps.
+        </p>
     </div>
 
-    <div class="card">
-        <h3>Submit Intake</h3>
-        <p>Complete or update intake information so services can move forward properly.</p>
-        <a href="intake.html" class="button">Open Intake</a>
+    <div class="grid">
+
+        <div class="card">
+            <h3>My Services</h3>
+            <p>View your active services and current service paths.</p>
+            <a href="dashboard.html" class="button">View Services</a>
+        </div>
+
+        <div class="card">
+            <h3>Upload Documents</h3>
+            <p>Upload documents, credit reports, business documents, and required files.</p>
+            <a href="#" class="button">Upload Files</a>
+        </div>
+
+        <div class="card">
+            <h3>Invoices</h3>
+            <p>View invoices, payment history, and outstanding balances.</p>
+            <a href="#" class="button">View Invoices</a>
+        </div>
+
+        <div class="card">
+            <h3>Account Updates</h3>
+            <p>See updates related to your services, tasks, and progress.</p>
+            <a href="#" class="button">View Updates</a>
+        </div>
+
+        <div class="card">
+            <h3>Submit New Intake</h3>
+            <p>Submit a new intake form for additional services.</p>
+            <a href="intake.html" class="button">New Intake</a>
+        </div>
+
+        <div class="card">
+            <h3>Contact / Support</h3>
+            <p>Submit a support request or ask questions about your services.</p>
+            <a href="intake.html" class="button">Contact</a>
+        </div>
+
     </div>
 
-    <div class="card">
-        <h3>Pricing & Services</h3>
-        <p>Review service options, package levels, and strategic service paths.</p>
-        <a href="pricing.html" class="button">View Pricing</a>
-    </div>
-
-    <div class="card">
-        <h3>Secure Login</h3>
-        <p>Access for active clients and future administrative portal expansion.</p>
-        <a href="login.html" class="button">Go to Login</a>
-    </div>
-
-</div>
-
-<div class="note-box">
-    <div class="note-box-inner">
-        This portal is currently the front-end structure of the Johnson Strategic Solutions platform.
-        Secure authentication, protected accounts, file management, and client-specific tools can be added next.
-    </div>
 </div>
 
 <div class="footer">
-    © Johnson Strategic Solutions
+    © Johnson Strategic Solutions | Client Portal
 </div>
 
 </body>
