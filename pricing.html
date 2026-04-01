@@ -1,239 +1,238 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Johnson Strategic Solutions | Pricing</title>
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Johnson Strategic Solutions | Pricing</title>
 
-    body {
-      font-family: Arial, sans-serif;
-      min-height: 100vh;
-      background:
-        linear-gradient(rgba(5, 10, 20, 0.84), rgba(5, 10, 20, 0.94)),
-        url("https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1600&q=80")
-        center center / cover no-repeat;
-      color: #ffffff;
-    }
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(rgba(5,10,20,0.84), rgba(5,10,20,0.94)),
+                url("https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1600&q=80");
+    background-size: cover;
+    background-position: center;
+    color: #ffffff;
+}
 
-    .page-wrap {
-      min-height: 100vh;
-      padding: 30px 20px 50px;
-    }
+.page-wrap {
+    min-height: 100vh;
+    padding: 30px 20px 50px;
+}
 
-    .topbar {
-      max-width: 1200px;
-      margin: 0 auto 30px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
+.topbar {
+    max-width: 1200px;
+    margin: 0 auto 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
 
-    .logo {
-      font-size: 34px;
-      font-weight: bold;
-      color: white;
-    }
+.logo {
+    font-size: 30px;
+    font-weight: bold;
+}
 
-    .nav {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 18px;
-    }
+.nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}
 
-    .nav a {
-      color: #7fb8ff;
-      text-decoration: none;
-      font-weight: bold;
-    }
+.nav a {
+    color: #7fb8ff;
+    text-decoration: none;
+    font-weight: bold;
+}
 
-    .hero {
-      max-width: 1200px;
-      margin: 0 auto 30px;
-      background: rgba(12, 18, 30, 0.84);
-      border: 1px solid rgba(77, 166, 255, 0.18);
-      border-radius: 18px;
-      padding: 34px 28px;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.4);
-    }
+.hero {
+    max-width: 1200px;
+    margin: 0 auto 30px;
+    background: rgba(12, 18, 30, 0.84);
+    border: 1px solid rgba(77, 166, 255, 0.18);
+    border-radius: 18px;
+    padding: 34px 28px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+}
 
-    .hero .eyebrow {
-      color: #7fb8ff;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      font-size: 13px;
-      font-weight: bold;
-      margin-bottom: 10px;
+.hero .eyebrow {
+    color: #7fb8ff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 13px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.hero h1 {
+    font-size: 40px;
+    margin-bottom: 12px;
+}
+
+.hero p {
+    color: #d7e6ff;
+    max-width: 760px;
+    line-height: 1.6;
+}
+
+.pricing-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.pricing-card {
+    background: rgba(12, 18, 30, 0.88);
+    border: 1px solid rgba(77, 166, 255, 0.16);
+    border-radius: 18px;
+    padding: 28px 24px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+    position: relative;
+}
+
+.pricing-card.featured {
+    border: 1px solid rgba(77, 166, 255, 0.4);
+    box-shadow: 0 22px 65px rgba(30, 125, 224, 0.18);
+    transform: translateY(-3px);
+}
+
+.badge {
+    display: inline-block;
+    margin-bottom: 16px;
+    padding: 7px 12px;
+    border-radius: 999px;
+    background: rgba(77, 166, 255, 0.15);
+    color: #9bcaff;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.pricing-card h2 {
+    font-size: 28px;
+    margin-bottom: 8px;
+}
+
+.pricing-card p {
+    color: #d7e6ff;
+    line-height: 1.5;
+}
+
+.price {
+    font-size: 42px;
+    font-weight: bold;
+    margin: 20px 0 8px;
+    color: #4da6ff;
+}
+
+.price-sub {
+    color: rgba(255,255,255,0.62);
+    font-size: 14px;
+    margin-bottom: 22px;
+}
+
+.feature-list {
+    list-style: none;
+    margin-bottom: 26px;
+    padding: 0;
+}
+
+.feature-list li {
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    color: #eef5ff;
+    line-height: 1.45;
+}
+
+.card-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.btn-primary,
+.btn-secondary {
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 12px;
+    padding: 14px 18px;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #4da6ff, #1e7de0);
+    color: #08111d;
+    box-shadow: 0 12px 28px rgba(30,125,224,0.34);
+}
+
+.btn-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 16px 34px rgba(30,125,224,0.42);
+}
+
+.btn-secondary {
+    background: rgba(255,255,255,0.06);
+    color: #dcecff;
+    border: 1px solid rgba(255,255,255,0.12);
+}
+
+.btn-secondary:hover {
+    background: rgba(255,255,255,0.1);
+}
+
+.bottom-note {
+    max-width: 1200px;
+    margin: 26px auto 0;
+    background: rgba(77, 166, 255, 0.08);
+    border: 1px solid rgba(77, 166, 255, 0.16);
+    border-radius: 14px;
+    padding: 20px;
+    color: #dcecff;
+    line-height: 1.6;
+    text-align: center;
+}
+
+.bottom-note .btn-primary {
+    margin-top: 18px;
+}
+
+.footer {
+    max-width: 1200px;
+    margin: 24px auto 0;
+    text-align: center;
+    color: rgba(255,255,255,0.58);
+    font-size: 13px;
+}
+
+@media (max-width: 980px) {
+    .pricing-grid {
+        grid-template-columns: 1fr;
     }
 
     .hero h1 {
-      font-size: 40px;
-      margin-bottom: 12px;
-    }
-
-    .hero p {
-      color: #d7e6ff;
-      max-width: 760px;
-      line-height: 1.6;
-    }
-
-    .pricing-grid {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 22px;
-    }
-
-    .pricing-card {
-      background: rgba(12, 18, 30, 0.88);
-      border: 1px solid rgba(77, 166, 255, 0.16);
-      border-radius: 18px;
-      padding: 28px 24px;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.35);
-      position: relative;
-    }
-
-    .pricing-card.featured {
-      border: 1px solid rgba(77, 166, 255, 0.4);
-      box-shadow: 0 22px 65px rgba(30, 125, 224, 0.18);
-      transform: translateY(-3px);
-    }
-
-    .badge {
-      display: inline-block;
-      margin-bottom: 16px;
-      padding: 7px 12px;
-      border-radius: 999px;
-      background: rgba(77, 166, 255, 0.15);
-      color: #9bcaff;
-      font-size: 12px;
-      font-weight: bold;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-    }
-
-    .pricing-card h2 {
-      font-size: 28px;
-      margin-bottom: 8px;
-    }
-
-    .pricing-card p {
-      color: #d7e6ff;
-      line-height: 1.5;
-    }
-
-    .price {
-      font-size: 42px;
-      font-weight: bold;
-      margin: 20px 0 8px;
-      color: #4da6ff;
-    }
-
-    .price-sub {
-      color: rgba(255,255,255,0.62);
-      font-size: 14px;
-      margin-bottom: 22px;
-    }
-
-    .feature-list {
-      list-style: none;
-      margin-bottom: 26px;
-    }
-
-    .feature-list li {
-      padding: 10px 0;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-      color: #eef5ff;
-      line-height: 1.45;
-    }
-
-    .card-actions {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    .btn-primary,
-    .btn-secondary {
-      display: inline-block;
-      text-align: center;
-      text-decoration: none;
-      font-weight: bold;
-      border-radius: 12px;
-      padding: 14px 18px;
-      transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
-    }
-
-    .btn-primary {
-      background: linear-gradient(135deg, #4da6ff, #1e7de0);
-      color: #08111d;
-      box-shadow: 0 12px 28px rgba(30,125,224,0.34);
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 16px 34px rgba(30,125,224,0.42);
-    }
-
-    .btn-secondary {
-      background: rgba(255,255,255,0.06);
-      color: #dcecff;
-      border: 1px solid rgba(255,255,255,0.12);
-    }
-
-    .btn-secondary:hover {
-      background: rgba(255,255,255,0.1);
-    }
-
-    .bottom-note {
-      max-width: 1200px;
-      margin: 26px auto 0;
-      background: rgba(77, 166, 255, 0.08);
-      border: 1px solid rgba(77, 166, 255, 0.16);
-      border-radius: 14px;
-      padding: 18px 20px;
-      color: #dcecff;
-      line-height: 1.6;
-    }
-
-    .footer {
-      max-width: 1200px;
-      margin: 24px auto 0;
-      text-align: center;
-      color: rgba(255,255,255,0.58);
-      font-size: 13px;
-    }
-
-    @media (max-width: 980px) {
-      .pricing-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .hero h1 {
         font-size: 32px;
-      }
+    }
 
-      .topbar {
+    .topbar {
         flex-direction: column;
         align-items: flex-start;
-      }
     }
-  </style>
+}
+</style>
 </head>
 <body>
   <div class="page-wrap">
     <div class="topbar">
-     <div class="navbar">
-    <div class="logo">Johnson Strategic Solutions</div>
-    <div class="nav-links">
+      <div class="logo">Johnson Strategic Solutions</div>
+      <div class="nav">
         <a href="index.html">Home</a>
         <a href="services.html">Services</a>
         <a href="credit-repair.html">Credit Repair</a>
@@ -243,15 +242,15 @@
         <a href="pricing.html">Pricing</a>
         <a href="intake.html">Start Here</a>
         <a href="login.html">Client Login</a>
+      </div>
     </div>
-</div>
 
     <section class="hero">
       <div class="eyebrow">Pricing</div>
       <h1>Choose Your Next Move</h1>
       <p>
-        These packages are built for clients who need clarity, structure, and execution.
-        Start with the option that matches where you are right now, then scale up as needed.
+        These service paths are designed for clients who need clarity, structure, and execution.
+        Start with the option that fits where you are now, then move into the next level when needed.
       </p>
     </section>
 
@@ -259,60 +258,60 @@
       <div class="pricing-card">
         <div class="badge">Starter</div>
         <h2>Consultation</h2>
-        <p>Best for people who need strategy, direction, and a clear next-step plan before moving forward.</p>
+        <p>Best for people who need direct strategy, guidance, and a clear next-step path before choosing a larger service.</p>
         <div class="price">$50</div>
         <div class="price-sub">One-time session</div>
 
         <ul class="feature-list">
           <li>1 strategy consultation</li>
-          <li>Goal review and service matching</li>
+          <li>Service matching and direction</li>
           <li>Initial action plan</li>
-          <li>Best first option if you are unsure where to begin</li>
+          <li>Best first move if you need clarity</li>
         </ul>
 
         <div class="card-actions">
-          <a href="intake.html" class="btn-primary">Get Started</a>
-          <a href="contact.html" class="btn-secondary">Ask Questions</a>
+          <a href="intake.html" class="btn-primary">Book Consultation</a>
+          <a href="services.html" class="btn-secondary">View Services</a>
         </div>
       </div>
 
       <div class="pricing-card featured">
         <div class="badge">Most Popular</div>
         <h2>Funding Blueprint</h2>
-        <p>Built for clients who want business or personal funding direction with structure, sequence, and execution clarity.</p>
+        <p>Built for clients who want funding direction with structure, sequencing, and a more serious execution plan.</p>
         <div class="price">$300</div>
         <div class="price-sub">One-time package</div>
 
         <ul class="feature-list">
           <li>Funding readiness review</li>
-          <li>Step-by-step blueprint</li>
-          <li>Positioning and structure guidance</li>
-          <li>Built for serious execution</li>
+          <li>Step-by-step funding blueprint</li>
+          <li>Business positioning guidance</li>
+          <li>Structured strategy for execution</li>
         </ul>
 
         <div class="card-actions">
-          <a href="intake.html" class="btn-primary">Start Blueprint</a>
-          <a href="contact.html" class="btn-secondary">Talk First</a>
+          <a href="intake.html" class="btn-primary">Start Funding Intake</a>
+          <a href="funding.html" class="btn-secondary">View Funding Service</a>
         </div>
       </div>
 
       <div class="pricing-card">
-        <div class="badge">Advanced</div>
+        <div class="badge">Custom</div>
         <h2>Custom Service</h2>
-        <p>For clients needing a custom credit, funding, automation, or business structure solution.</p>
+        <p>For clients needing a tailored credit, business setup, funding, or automation solution based on exact scope.</p>
         <div class="price">Custom</div>
         <div class="price-sub">Based on scope</div>
 
         <ul class="feature-list">
-          <li>Custom-built service plan</li>
-          <li>More complex situations handled</li>
-          <li>Best for clients needing tailored execution</li>
-          <li>Price based on scope and depth</li>
+          <li>Custom-built service path</li>
+          <li>Complex scenario review</li>
+          <li>Scope-based pricing</li>
+          <li>Best for layered situations</li>
         </ul>
 
         <div class="card-actions">
-          <a href="intake.html" class="btn-primary">Request Custom Quote</a>
-          <a href="contact.html" class="btn-secondary">Contact Reaper AI</a>
+          <a href="intake.html" class="btn-primary">Request Custom Intake</a>
+          <a href="services.html" class="btn-secondary">Explore Service Paths</a>
         </div>
       </div>
     </section>
@@ -320,6 +319,8 @@
     <div class="bottom-note">
       Need something more specific? Start with the intake form and state exactly what you need.
       Once reviewed, the right service path can be assigned based on your goals, profile, and situation.
+      <br>
+      <a href="intake.html" class="btn-primary">Start Intake</a>
     </div>
 
     <div class="footer">
