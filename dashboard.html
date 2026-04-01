@@ -9,7 +9,7 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background: linear-gradient(rgba(5,10,20,0.9), rgba(5,10,20,0.95)),
+    background: linear-gradient(rgba(5,10,20,0.9), rgba(5,10,20,0.96)),
                 url("https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1600&q=80");
     background-size: cover;
     background-position: center;
@@ -22,56 +22,121 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .logo {
-    font-size: 20px;
+    font-size: 24px;
     font-weight: bold;
+}
+
+.nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
 }
 
 .nav-links a {
     color: #7fb8ff;
     text-decoration: none;
-    margin-left: 20px;
     font-weight: bold;
 }
 
 .container {
-    max-width: 1100px;
-    margin: 60px auto;
-    padding: 20px;
+    max-width: 1200px;
+    margin: 50px auto 80px;
+    padding: 0 20px;
 }
 
-h1 {
-    margin-bottom: 30px;
+.hero {
+    background: rgba(12,18,30,0.9);
+    border: 1px solid rgba(77,166,255,0.12);
+    border-radius: 16px;
+    padding: 30px;
+    box-shadow: 0 18px 45px rgba(0,0,0,0.45);
+    margin-bottom: 24px;
+}
+
+.hero h1 {
+    margin: 0 0 10px;
+    font-size: 38px;
+}
+
+.hero p {
+    margin: 0;
+    color: #d7e6ff;
+    line-height: 1.6;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 18px;
+    margin-bottom: 24px;
+}
+
+.stat-card {
+    background: rgba(12,18,30,0.92);
+    border: 1px solid rgba(77,166,255,0.12);
+    border-radius: 14px;
+    padding: 22px;
+    box-shadow: 0 14px 35px rgba(0,0,0,0.45);
+}
+
+.stat-card h3 {
+    margin: 0 0 8px;
+    font-size: 16px;
+    color: #cfe3ff;
+}
+
+.stat-number {
+    font-size: 34px;
+    font-weight: bold;
+    color: #4da6ff;
 }
 
 .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 22px;
 }
 
 .card {
-    background: rgba(12,18,30,0.9);
-    padding: 25px;
-    border-radius: 12px;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+    background: rgba(12,18,30,0.92);
+    border: 1px solid rgba(77,166,255,0.12);
+    border-radius: 14px;
+    padding: 26px;
+    box-shadow: 0 18px 45px rgba(0,0,0,0.45);
 }
 
 .card h3 {
     margin-top: 0;
+    margin-bottom: 12px;
+    font-size: 24px;
+}
+
+.card p {
+    color: #d7e6ff;
+    line-height: 1.6;
+    margin-bottom: 18px;
 }
 
 .button {
     display: inline-block;
     background: linear-gradient(135deg,#4da6ff,#1e7de0);
     color: #08111d;
-    padding: 10px 16px;
-    border-radius: 8px;
+    padding: 12px 18px;
+    border-radius: 10px;
     text-decoration: none;
     font-weight: bold;
-    margin-top: 10px;
+    margin-top: 8px;
+}
+
+.footer {
+    text-align: center;
+    padding: 24px 20px 30px;
+    color: rgba(255,255,255,0.65);
+    font-size: 13px;
 }
 </style>
 </head>
@@ -91,47 +156,76 @@ h1 {
 </div>
 
 <div class="container">
-    <h1>Client Dashboard</h1>
+
+    <div class="hero">
+        <h1>Client Dashboard</h1>
+        <p>
+            Welcome to your Johnson Strategic Solutions dashboard. This is where service paths,
+            next steps, client tools, and future account features will be organized.
+        </p>
+    </div>
+
+    <div class="stats-grid">
+        <div class="stat-card">
+            <h3>Active Services</h3>
+            <div class="stat-number">4</div>
+        </div>
+        <div class="stat-card">
+            <h3>Open Tasks</h3>
+            <div class="stat-number">3</div>
+        </div>
+        <div class="stat-card">
+            <h3>Account Status</h3>
+            <div class="stat-number">Live</div>
+        </div>
+        <div class="stat-card">
+            <h3>Next Step</h3>
+            <div class="stat-number">Review</div>
+        </div>
+    </div>
 
     <div class="grid">
+        <div class="card">
+            <h3>Credit Repair</h3>
+            <p>Access credit repair service details, process guidance, and next-step information.</p>
+            <a href="credit-repair.html" class="button">Open Credit Repair</a>
+        </div>
+
+        <div class="card">
+            <h3>Business Setup</h3>
+            <p>Review business setup services, structure guidance, and foundational positioning steps.</p>
+            <a href="business-setup.html" class="button">Open Business Setup</a>
+        </div>
+
+        <div class="card">
+            <h3>Funding</h3>
+            <p>Review funding services, strategy pages, and the next-step path for capital readiness.</p>
+            <a href="funding.html" class="button">Open Funding</a>
+        </div>
+
+        <div class="card">
+            <h3>Automation</h3>
+            <p>Explore automation and AI system services designed to improve workflow and operations.</p>
+            <a href="automation.html" class="button">Open Automation</a>
+        </div>
 
         <div class="card">
             <h3>Client Intake</h3>
-            <p>Submit or update your intake information.</p>
+            <p>Submit or update your intake information so your service path can move forward correctly.</p>
             <a href="intake.html" class="button">Open Intake</a>
         </div>
 
         <div class="card">
-            <h3>Documents</h3>
-            <p>Upload and download your documents.</p>
-            <a href="#" class="button">Coming Soon</a>
+            <h3>Pricing</h3>
+            <p>Review service pricing, package structure, and next-step service options.</p>
+            <a href="pricing.html" class="button">View Pricing</a>
         </div>
-
-        <div class="card">
-            <h3>Dispute Letters</h3>
-            <p>View your letters and dispute progress.</p>
-            <a href="#" class="button">Coming Soon</a>
-        </div>
-
-        <div class="card">
-            <h3>Invoices & Payments</h3>
-            <p>View invoices and make payments.</p>
-            <a href="#" class="button">Coming Soon</a>
-        </div>
-
-        <div class="card">
-            <h3>Funding Blueprint</h3>
-            <p>Access your funding plan and business steps.</p>
-            <a href="#" class="button">Coming Soon</a>
-        </div>
-
-        <div class="card">
-            <h3>Support</h3>
-            <p>Contact support or request updates.</p>
-            <a href="#" class="button">Coming Soon</a>
-        </div>
-
     </div>
+
+</div>
+
+<div class="footer">
+    © Johnson Strategic Solutions | Client Platform
 </div>
 
 </body>
