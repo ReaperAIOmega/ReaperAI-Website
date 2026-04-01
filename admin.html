@@ -26,14 +26,14 @@ body {
 }
 
 .logo {
-    font-size: 20px;
+    font-size: 24px;
     font-weight: bold;
 }
 
 .nav-links {
     display: flex;
     flex-wrap: wrap;
-    gap: 16px;
+    gap: 12px;
 }
 
 .nav-links a {
@@ -121,13 +121,6 @@ body {
     margin-bottom: 18px;
 }
 
-.card ul {
-    padding-left: 18px;
-    color: #d7e6ff;
-    line-height: 1.7;
-    margin-bottom: 18px;
-}
-
 .button {
     display: inline-block;
     background: linear-gradient(135deg,#4da6ff,#1e7de0);
@@ -136,7 +129,6 @@ body {
     border-radius: 10px;
     text-decoration: none;
     font-weight: bold;
-    margin-right: 10px;
     margin-top: 8px;
 }
 
@@ -199,12 +191,12 @@ td {
 }
 
 .status-active {
-    background: rgba(66, 184, 131, 0.18);
+    background: rgba(66,184,131,0.18);
     color: #8ff0c4;
 }
 
 .status-pending {
-    background: rgba(255, 193, 7, 0.18);
+    background: rgba(255,193,7,0.18);
     color: #ffe18a;
 }
 
@@ -214,16 +206,6 @@ td {
     color: rgba(255,255,255,0.65);
     font-size: 13px;
 }
-
-@media (max-width: 768px) {
-    .hero h1 {
-        font-size: 32px;
-    }
-
-    .navbar {
-        gap: 15px;
-    }
-}
 </style>
 </head>
 
@@ -232,11 +214,11 @@ td {
 <div class="navbar">
     <div class="logo">Johnson Strategic Solutions</div>
     <div class="nav-links">
+        <a href="admin.html">Admin</a>
         <a href="dashboard.html">Dashboard</a>
         <a href="client-portal.html">Client Portal</a>
         <a href="intake.html">Intake</a>
         <a href="pricing.html">Pricing</a>
-        <a href="admin.html">Admin</a>
         <a href="index.html">Logout</a>
     </div>
 </div>
@@ -246,8 +228,8 @@ td {
     <div class="hero">
         <h1>Administrative Dashboard</h1>
         <p>
-            This is the Johnson Strategic Solutions control center. Use this space to manage
-            new intakes, active clients, payments, documents, dispute progress, and funding workflows.
+            This is the Johnson Strategic Solutions control center. Use this space to track client activity,
+            review new intakes, monitor services, and manage future platform operations.
         </p>
     </div>
 
@@ -273,69 +255,38 @@ td {
     <div class="grid">
         <div class="card">
             <h3>Lead Management</h3>
-            <p>Review new intake submissions, contact leads, and move qualified clients into onboarding.</p>
-            <ul>
-                <li>Review submitted intake forms</li>
-                <li>Tag leads by service type</li>
-                <li>Move leads into active clients</li>
-            </ul>
-            <a href="intake.html" class="button">View Intake Form</a>
+            <p>Review new intake submissions and move qualified leads into active client flow.</p>
+            <a href="intake.html" class="button">Open Intake</a>
+        </div>
+
+        <div class="card">
+            <h3>Client Services</h3>
+            <p>Access core service pages and route clients into the correct service path.</p>
+            <a href="dashboard.html" class="button">Open Dashboard</a>
+        </div>
+
+        <div class="card">
+            <h3>Client Portal</h3>
+            <p>Review the client-facing portal structure and future account access flow.</p>
+            <a href="client-portal.html" class="button">Open Portal</a>
+        </div>
+
+        <div class="card">
+            <h3>Invoices & Payments</h3>
+            <p>Track invoice status, payment flow, and package activity across all clients.</p>
             <a href="#" class="button button-secondary">Coming Soon</a>
         </div>
 
         <div class="card">
-            <h3>Payments & Invoices</h3>
-            <p>Track invoices, package purchases, and payment status across all active and pending clients.</p>
-            <ul>
-                <li>Monitor unpaid balances</li>
-                <li>Send invoices and reminders</li>
-                <li>Track service package purchases</li>
-            </ul>
-            <a href="#" class="button">Coming Soon</a>
-        </div>
-
-        <div class="card">
-            <h3>Documents & Files</h3>
-            <p>Central location for client IDs, credit reports, funding documents, and future file uploads.</p>
-            <ul>
-                <li>Store client documents</li>
-                <li>Track uploaded files</li>
-                <li>Prepare secure file access later</li>
-            </ul>
-            <a href="#" class="button">Coming Soon</a>
-        </div>
-
-        <div class="card">
-            <h3>Dispute Workflow</h3>
-            <p>Track rounds, letter status, and dispute progress for each active client profile.</p>
-            <ul>
-                <li>Round tracking</li>
-                <li>Letter generation queue</li>
-                <li>Status updates and follow-ups</li>
-            </ul>
-            <a href="#" class="button">Coming Soon</a>
-        </div>
-
-        <div class="card">
-            <h3>Funding Workflow</h3>
-            <p>Manage business and personal funding clients, blueprint delivery, and next-step sequencing.</p>
-            <ul>
-                <li>Funding plan status</li>
-                <li>Business readiness review</li>
-                <li>Client step tracking</li>
-            </ul>
-            <a href="#" class="button">Coming Soon</a>
+            <h3>Documents & Uploads</h3>
+            <p>Manage future file uploads, client documents, and service-related records.</p>
+            <a href="#" class="button button-secondary">Coming Soon</a>
         </div>
 
         <div class="card">
             <h3>Platform Controls</h3>
-            <p>Later this section can manage admin users, client accounts, automations, and site-level tools.</p>
-            <ul>
-                <li>Admin controls</li>
-                <li>User management</li>
-                <li>Automation setup</li>
-            </ul>
-            <a href="#" class="button">Coming Soon</a>
+            <p>Manage future admin tools, user controls, service automation, and platform settings.</p>
+            <a href="#" class="button button-secondary">Coming Soon</a>
         </div>
     </div>
 
@@ -380,7 +331,7 @@ td {
 </div>
 
 <div class="footer">
-    © Johnson Strategic Solutions
+    © Johnson Strategic Solutions | Admin Platform
 </div>
 
 </body>
