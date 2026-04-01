@@ -26,14 +26,14 @@ body {
 }
 
 .logo {
-    font-size: 20px;
+    font-size: 24px;
     font-weight: bold;
 }
 
 .nav-links {
     display: flex;
     flex-wrap: wrap;
-    gap: 16px;
+    gap: 12px;
 }
 
 .nav-links a {
@@ -43,8 +43,8 @@ body {
 }
 
 .hero {
-    max-width: 1100px;
-    margin: 70px auto;
+    max-width: 1150px;
+    margin: 70px auto 30px;
     padding: 0 20px;
 }
 
@@ -52,42 +52,54 @@ body {
     background: rgba(12,18,30,0.9);
     border: 1px solid rgba(77,166,255,0.14);
     border-radius: 18px;
-    padding: 40px;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    padding: 38px 32px;
+    box-shadow: 0 18px 45px rgba(0,0,0,0.45);
 }
 
 .hero h1 {
-    margin: 0 0 15px;
-    font-size: 42px;
+    margin: 0 0 14px;
+    font-size: 44px;
 }
 
 .hero p {
     color: #d7e6ff;
     line-height: 1.7;
     font-size: 18px;
-    max-width: 800px;
+    max-width: 820px;
+}
+
+.hero-buttons {
+    margin-top: 26px;
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
 }
 
 .button {
     display: inline-block;
-    margin-top: 20px;
     background: linear-gradient(135deg,#4da6ff,#1e7de0);
     color: #08111d;
-    padding: 14px 22px;
+    padding: 13px 20px;
     border-radius: 10px;
     text-decoration: none;
     font-weight: bold;
 }
 
+.button-secondary {
+    background: rgba(255,255,255,0.08);
+    color: #dcecff;
+    border: 1px solid rgba(255,255,255,0.12);
+}
+
 .section {
-    max-width: 1100px;
-    margin: 0 auto 60px;
-    padding: 0 20px;
+    max-width: 1150px;
+    margin: 0 auto;
+    padding: 0 20px 28px;
 }
 
 .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 22px;
 }
 
@@ -95,25 +107,118 @@ body {
     background: rgba(12,18,30,0.92);
     border: 1px solid rgba(77,166,255,0.12);
     border-radius: 14px;
-    padding: 24px;
+    padding: 26px;
     box-shadow: 0 18px 45px rgba(0,0,0,0.45);
 }
 
 .card h2 {
     margin-top: 0;
-    font-size: 24px;
+    margin-bottom: 14px;
+    font-size: 26px;
 }
 
 .card p {
     color: #d7e6ff;
     line-height: 1.6;
+    margin-bottom: 16px;
+}
+
+.card ul {
+    padding-left: 18px;
+    color: #d7e6ff;
+    line-height: 1.7;
+    margin: 0;
+}
+
+.process-box {
+    background: rgba(12,18,30,0.92);
+    border: 1px solid rgba(77,166,255,0.12);
+    border-radius: 14px;
+    padding: 30px;
+    box-shadow: 0 18px 45px rgba(0,0,0,0.45);
+}
+
+.process-box h2 {
+    margin-top: 0;
+    margin-bottom: 16px;
+    font-size: 30px;
+}
+
+.steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 18px;
+}
+
+.step {
+    background: rgba(255,255,255,0.05);
+    border-radius: 12px;
+    padding: 18px;
+}
+
+.step-number {
+    font-size: 13px;
+    font-weight: bold;
+    color: #7fb8ff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+}
+
+.step h3 {
+    margin: 0 0 8px;
+    font-size: 20px;
+}
+
+.step p {
+    margin: 0;
+    color: #d7e6ff;
+    line-height: 1.6;
+}
+
+.cta-box {
+    max-width: 1150px;
+    margin: 0 auto 70px;
+    padding: 0 20px;
+}
+
+.cta-inner {
+    background: rgba(12,18,30,0.94);
+    border: 1px solid rgba(77,166,255,0.14);
+    border-radius: 16px;
+    padding: 34px;
+    text-align: center;
+    box-shadow: 0 18px 45px rgba(0,0,0,0.45);
+}
+
+.cta-inner h2 {
+    margin-top: 0;
+    font-size: 34px;
+    margin-bottom: 12px;
+}
+
+.cta-inner p {
+    color: #d7e6ff;
+    line-height: 1.7;
+    max-width: 760px;
+    margin: 0 auto 22px;
 }
 
 .footer {
     text-align: center;
-    padding: 30px;
-    color: rgba(255,255,255,0.6);
+    padding: 24px 20px 30px;
+    color: rgba(255,255,255,0.65);
     font-size: 13px;
+}
+
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 34px;
+    }
+
+    .navbar {
+        gap: 15px;
+    }
 }
 </style>
 </head>
@@ -140,46 +245,100 @@ body {
         <h1>Business Setup Services</h1>
         <p>
             Johnson Strategic Solutions helps clients structure their businesses correctly,
-            establish proper business profiles, and build the foundation needed for funding,
+            establish stronger business profiles, and build the foundation needed for funding,
             growth, and long-term operations.
         </p>
-        <a href="intake.html" class="button">Start Intake</a>
+
+        <div class="hero-buttons">
+            <a href="intake.html" class="button">Start Intake</a>
+            <a href="pricing.html" class="button button-secondary">View Pricing</a>
+        </div>
     </div>
 </div>
 
 <div class="section">
     <div class="grid">
         <div class="card">
-            <h2>Business Structure</h2>
+            <h2>What This Service Covers</h2>
             <p>
-                Guidance on selecting and structuring LLCs, corporations, and business entities
-                in a way that supports funding, banking, and long-term growth.
+                This service is built for clients who need a cleaner business foundation before moving into credit,
+                funding, or larger operational growth.
             </p>
+            <ul>
+                <li>Business structure guidance</li>
+                <li>Entity positioning support</li>
+                <li>Business profile setup direction</li>
+                <li>Foundation planning for growth</li>
+            </ul>
         </div>
 
         <div class="card">
-            <h2>Business Profile Setup</h2>
+            <h2>What We Help Establish</h2>
             <p>
-                Help establishing EIN, business address, phone, email, website, and business
-                presence to create a strong and consistent business profile.
+                Strong setup matters. This service helps clients tighten the key pieces that affect how the business appears and operates.
             </p>
+            <ul>
+                <li>EIN and business identity alignment</li>
+                <li>Business address and contact setup</li>
+                <li>Business email and website presence</li>
+                <li>Business profile consistency</li>
+            </ul>
         </div>
 
         <div class="card">
-            <h2>Banking & Documentation</h2>
+            <h2>Who This Is For</h2>
             <p>
-                Assistance with business banking setup, documentation preparation, and
-                organization of business records and structure.
+                This service is for entrepreneurs, new business owners, and operators who want their setup handled with structure and purpose.
             </p>
+            <ul>
+                <li>New business owners</li>
+                <li>Clients preparing for funding</li>
+                <li>Businesses needing cleanup and alignment</li>
+                <li>Owners building a stronger profile</li>
+            </ul>
         </div>
+    </div>
+</div>
 
-        <div class="card">
-            <h2>Foundation For Funding</h2>
-            <p>
-                Proper setup is the foundation for business credit and funding. This service
-                focuses on building the structure first before moving into funding strategy.
-            </p>
+<div class="section">
+    <div class="process-box">
+        <h2>How The Process Works</h2>
+        <div class="steps">
+            <div class="step">
+                <div class="step-number">Step 1</div>
+                <h3>Submit Intake</h3>
+                <p>Complete the intake form and explain your current business structure and goals.</p>
+            </div>
+
+            <div class="step">
+                <div class="step-number">Step 2</div>
+                <h3>Review</h3>
+                <p>Your current setup is reviewed to identify missing pieces, inconsistencies, or weak positioning.</p>
+            </div>
+
+            <div class="step">
+                <div class="step-number">Step 3</div>
+                <h3>Structure Plan</h3>
+                <p>A cleaner setup path is outlined based on the business profile and long-term objectives.</p>
+            </div>
+
+            <div class="step">
+                <div class="step-number">Step 4</div>
+                <h3>Execution</h3>
+                <p>Next steps move into action so the business is positioned correctly before funding or expansion.</p>
+            </div>
         </div>
+    </div>
+</div>
+
+<div class="cta-box">
+    <div class="cta-inner">
+        <h2>Need your business set up correctly?</h2>
+        <p>
+            Start with the intake form and explain where your business stands now. Once reviewed,
+            the right setup path can be assigned based on your structure, goals, and next move.
+        </p>
+        <a href="intake.html" class="button">Complete Intake Form</a>
     </div>
 </div>
 
