@@ -130,11 +130,12 @@ body {
 <div class="navbar">
     <div class="logo">Johnson Strategic Solutions</div>
     <div class="nav-links">
-        <a href="index.html">Home</a>
-        <a href="services.html">Services</a>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="client-portal.html">Client Portal</a>
+        <a href="intake.html">Intake</a>
         <a href="pricing.html">Pricing</a>
-        <a href="intake.html">Start Here</a>
-        <a href="login.html">Client Login</a>
+        <a href="admin.html">Admin</a>
+        <a href="index.html">Logout</a>
     </div>
 </div>
 
