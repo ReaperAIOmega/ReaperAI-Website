@@ -1,338 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Johnson Strategic Solutions | Admin Dashboard</title>
-
-<style>
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: linear-gradient(rgba(5,10,20,0.9), rgba(5,10,20,0.96)),
-                url("https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1600&q=80");
-    background-size: cover;
-    background-position: center;
-    color: white;
-}
-
-.navbar {
-    background: rgba(10,15,25,0.95);
-    padding: 15px 30px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-}
-
-.logo {
-    font-size: 24px;
-    font-weight: bold;
-}
-
-.nav-links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-}
-
-.nav-links a {
-    color: #7fb8ff;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.container {
-    max-width: 1200px;
-    margin: 50px auto 80px;
-    padding: 0 20px;
-}
-
-.hero {
-    background: rgba(12,18,30,0.9);
-    border: 1px solid rgba(77,166,255,0.12);
-    border-radius: 16px;
-    padding: 30px;
-    box-shadow: 0 18px 45px rgba(0,0,0,0.45);
-    margin-bottom: 24px;
-}
-
-.hero h1 {
-    margin: 0 0 10px;
-    font-size: 38px;
-}
-
-.hero p {
-    margin: 0;
-    color: #d7e6ff;
-    line-height: 1.6;
-}
-
-.stats-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 18px;
-    margin-bottom: 24px;
-}
-
-.stat-card {
-    background: rgba(12,18,30,0.92);
-    border: 1px solid rgba(77,166,255,0.12);
-    border-radius: 14px;
-    padding: 22px;
-    box-shadow: 0 14px 35px rgba(0,0,0,0.45);
-}
-
-.stat-card h3 {
-    margin: 0 0 8px;
-    font-size: 16px;
-    color: #cfe3ff;
-}
-
-.stat-number {
-    font-size: 34px;
-    font-weight: bold;
-    color: #4da6ff;
-}
-
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 22px;
-}
-
-.card {
-    background: rgba(12,18,30,0.92);
-    border: 1px solid rgba(77,166,255,0.12);
-    border-radius: 14px;
-    padding: 26px;
-    box-shadow: 0 18px 45px rgba(0,0,0,0.45);
-}
-
-.card h3 {
-    margin-top: 0;
-    margin-bottom: 12px;
-    font-size: 24px;
-}
-
-.card p {
-    color: #d7e6ff;
-    line-height: 1.6;
-    margin-bottom: 18px;
-}
-
-.button {
-    display: inline-block;
-    background: linear-gradient(135deg,#4da6ff,#1e7de0);
-    color: #08111d;
-    padding: 12px 18px;
-    border-radius: 10px;
-    text-decoration: none;
-    font-weight: bold;
-    margin-top: 8px;
-}
-
-.button-secondary {
-    background: rgba(255,255,255,0.08);
-    color: #dcecff;
-    border: 1px solid rgba(255,255,255,0.12);
-}
-
-.table-wrap {
-    margin-top: 24px;
-    background: rgba(12,18,30,0.92);
-    border: 1px solid rgba(77,166,255,0.12);
-    border-radius: 14px;
-    padding: 24px;
-    box-shadow: 0 18px 45px rgba(0,0,0,0.45);
-    overflow-x: auto;
-}
-
-.table-wrap h3 {
-    margin-top: 0;
-    margin-bottom: 16px;
-    font-size: 24px;
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-    min-width: 700px;
-}
-
-th, td {
-    text-align: left;
-    padding: 14px 12px;
-    border-bottom: 1px solid rgba(255,255,255,0.08);
-}
-
-th {
-    color: #9bcaff;
-    font-size: 14px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-td {
-    color: #eef5ff;
-}
-
-.status {
-    display: inline-block;
-    padding: 6px 10px;
-    border-radius: 999px;
-    font-size: 12px;
-    font-weight: bold;
-}
-
-.status-new {
-    background: rgba(77,166,255,0.18);
-    color: #9bcaff;
-}
-
-.status-active {
-    background: rgba(66,184,131,0.18);
-    color: #8ff0c4;
-}
-
-.status-pending {
-    background: rgba(255,193,7,0.18);
-    color: #ffe18a;
-}
-
-.footer {
-    text-align: center;
-    padding: 24px 20px 30px;
-    color: rgba(255,255,255,0.65);
-    font-size: 13px;
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Johnson Strategic Solutions | Admin Dashboard</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
+  <div id="navbar" data-navbar="navbar-admin.html"></div>
 
-<div class="navbar">
-    <div class="logo">Johnson Strategic Solutions</div>
-    <div class="nav-links">
-        <a href="admin.html">Admin</a>
-        <a href="dashboard.html">Dashboard</a>
-        <a href="client-portal.html">Client Portal</a>
-        <a href="intake.html">Intake</a>
-        <a href="pricing.html">Pricing</a>
-        <a href="index.html">Logout</a>
-    </div>
-</div>
-
-<div class="container">
-
+  <div class="container">
     <div class="hero">
+      <div class="hero-box">
         <h1>Administrative Dashboard</h1>
         <p>
-            This is the Johnson Strategic Solutions control center. Use this space to track client activity,
-            review new intakes, monitor services, and manage future platform operations.
+          This is the Johnson Strategic Solutions control center. Track client activity, review intakes,
+          monitor services, and manage future platform operations.
         </p>
+      </div>
     </div>
 
     <div class="stats-grid">
-        <div class="stat-card">
-            <h3>New Intakes</h3>
-            <div class="stat-number">12</div>
-        </div>
-        <div class="stat-card">
-            <h3>Active Clients</h3>
-            <div class="stat-number">8</div>
-        </div>
-        <div class="stat-card">
-            <h3>Pending Payments</h3>
-            <div class="stat-number">3</div>
-        </div>
-        <div class="stat-card">
-            <h3>Open Tasks</h3>
-            <div class="stat-number">17</div>
-        </div>
+      <div class="stat-card"><h3>New Intakes</h3><div class="stat-number">12</div></div>
+      <div class="stat-card"><h3>Active Clients</h3><div class="stat-number">8</div></div>
+      <div class="stat-card"><h3>Pending Payments</h3><div class="stat-number">3</div></div>
+      <div class="stat-card"><h3>Open Tasks</h3><div class="stat-number">17</div></div>
     </div>
 
-    <div class="grid">
-        <div class="card">
-            <h3>Lead Management</h3>
-            <p>Review new intake submissions and move qualified leads into active client flow.</p>
-            <a href="intake.html" class="button">Open Intake</a>
-        </div>
-
-        <div class="card">
-            <h3>Client Services</h3>
-            <p>Access core service pages and route clients into the correct service path.</p>
-            <a href="dashboard.html" class="button">Open Dashboard</a>
-        </div>
-
-        <div class="card">
-            <h3>Client Portal</h3>
-            <p>Review the client-facing portal structure and future account access flow.</p>
-            <a href="client-portal.html" class="button">Open Portal</a>
-        </div>
-
-        <div class="card">
-            <h3>Invoices & Payments</h3>
-            <p>Track invoice status, payment flow, and package activity across all clients.</p>
-            <a href="#" class="button button-secondary">Coming Soon</a>
-        </div>
-
-        <div class="card">
-            <h3>Documents & Uploads</h3>
-            <p>Manage future file uploads, client documents, and service-related records.</p>
-            <a href="#" class="button button-secondary">Coming Soon</a>
-        </div>
-
-        <div class="card">
-            <h3>Platform Controls</h3>
-            <p>Manage future admin tools, user controls, service automation, and platform settings.</p>
-            <a href="#" class="button button-secondary">Coming Soon</a>
-        </div>
+    <div class="grid-3">
+      <div class="card"><h3>Lead Management</h3><p>Review new intake submissions and move qualified leads into active flow.</p><a href="intakes.html" class="button">Open</a></div>
+      <div class="card"><h3>Clients</h3><p>Review client records and service paths.</p><a href="clients.html" class="button">Open</a></div>
+      <div class="card"><h3>Payments</h3><p>Track invoice status and payment flow.</p><a href="payments.html" class="button">Open</a></div>
+      <div class="card"><h3>Documents</h3><p>Manage uploaded documents and service records.</p><a href="documents.html" class="button">Open</a></div>
+      <div class="card"><h3>Site Settings</h3><p>Control future pricing, service labels, and site settings.</p><a href="site-settings.html" class="button">Open</a></div>
+      <div class="card"><h3>Client Portal</h3><p>Review the client-facing portal structure.</p><a href="client-portal.html" class="button">Open</a></div>
     </div>
 
     <div class="table-wrap">
-        <h3>Recent Client Activity</h3>
-        <table>
-            <thead>
-                <tr>
-                    <th>Client</th>
-                    <th>Service</th>
-                    <th>Status</th>
-                    <th>Last Update</th>
-                    <th>Next Step</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Jane Doe</td>
-                    <td>Credit Repair</td>
-                    <td><span class="status status-new">New Intake</span></td>
-                    <td>Today</td>
-                    <td>Review Intake</td>
-                </tr>
-                <tr>
-                    <td>Michael Smith</td>
-                    <td>Business Funding</td>
-                    <td><span class="status status-active">Active</span></td>
-                    <td>Yesterday</td>
-                    <td>Send Blueprint</td>
-                </tr>
-                <tr>
-                    <td>Tamika Johnson</td>
-                    <td>Consultation</td>
-                    <td><span class="status status-pending">Pending Payment</span></td>
-                    <td>2 days ago</td>
-                    <td>Send Invoice Reminder</td>
-                </tr>
-            </tbody>
-        </table>
+      <h3>Recent Client Activity</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Client</th>
+            <th>Service</th>
+            <th>Status</th>
+            <th>Last Update</th>
+            <th>Next Step</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Jane Doe</td>
+            <td>Credit Repair</td>
+            <td><span class="status status-new">New Intake</span></td>
+            <td>Today</td>
+            <td>Review Intake</td>
+          </tr>
+          <tr>
+            <td>Michael Smith</td>
+            <td>Business Funding</td>
+            <td><span class="status status-active">Active</span></td>
+            <td>Yesterday</td>
+            <td>Send Blueprint</td>
+          </tr>
+          <tr>
+            <td>Tamika Johnson</td>
+            <td>Consultation</td>
+            <td><span class="status status-pending">Pending Payment</span></td>
+            <td>2 days ago</td>
+            <td>Send Invoice Reminder</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
+  </div>
 
-</div>
+  <div class="footer">© Johnson Strategic Solutions | Admin Platform</div>
 
-<div class="footer">
-    © Johnson Strategic Solutions | Admin Platform
-</div>
-
+  <script src="load-navbar.js"></script>
 </body>
 </html>
