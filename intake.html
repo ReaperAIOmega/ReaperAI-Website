@@ -56,7 +56,7 @@
   <div class="footer">© Johnson Strategic Solutions</div>
 
   <script src="load-navbar.js"></script>
-  <script>
+<script>
 const form = document.getElementById("intake-form");
 const statusMessage = document.getElementById("status-message");
 const submitBtn = document.getElementById("submit-btn");
@@ -68,23 +68,19 @@ form.addEventListener("submit", async function(event) {
   submitBtn.textContent = "Submitting...";
   statusMessage.textContent = "Sending your intake...";
 
-  const payload = {
-    fullName: form.querySelector('[name="Full Name"]').value,
-    email: form.querySelector('[name="Email"]').value,
-    phone: form.querySelector('[name="Phone"]').value,
-    serviceNeeded: form.querySelector('[name="Service Needed"]').value,
-    creditScore: form.querySelector('[name="Estimated Credit Score"]').value,
-    fundingAmount: form.querySelector('[name="Funding Amount Needed"]').value,
-    notes: form.querySelector('[name="Notes"]').value
-  };
+  const params = new URLSearchParams();
+  params.append("fullName", form.querySelector('[name="Full Name"]').value);
+  params.append("email", form.querySelector('[name="Email"]').value);
+  params.append("phone", form.querySelector('[name="Phone"]').value);
+  params.append("serviceNeeded", form.querySelector('[name="Service Needed"]').value);
+  params.append("creditScore", form.querySelector('[name="Estimated Credit Score"]').value);
+  params.append("fundingAmount", form.querySelector('[name="Funding Amount Needed"]').value);
+  params.append("notes", form.querySelector('[name="Notes"]').value);
 
   try {
     const response = await fetch("https://script.google.com/macros/s/AKfycbzH82fTtqq-skhhQ1jXMvfHoSdIY3OpugYlY1CQkFT3bpT3NkP8PPBUAS9ZzoWrjq38Hg/exec", {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(payload)
+      body: params
     });
 
     const result = await response.json();
