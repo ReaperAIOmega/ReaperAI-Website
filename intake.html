@@ -6,7 +6,83 @@
   <title>Johnson Strategic Solutions | Client Intake</title>
   <link rel="stylesheet" href="styles.css">
 </head>
+<body><!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Johnson Strategic Solutions | Client Intake</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
 <body>
+  <div id="navbar" data-navbar="navbar-public.html"></div>
+
+  <div class="form-card">
+    <h2 class="center">Client Intake Form</h2>
+    <p class="center">
+      Fill out this form so we can review your situation and move forward.
+    </p>
+
+    <form
+      id="intake-form"
+      action="https://script.google.com/macros/s/AKfycbzH82fTtqq-skhhQ1jXMvfHoSdIY3OpugYlY1CQkFT3bpT3NkP8PPBUAS9ZzoWrjq38Hg/exec"
+      method="POST"
+    >
+      <label for="fullName">Full Name</label>
+      <input type="text" id="fullName" name="fullName" placeholder="Enter your full name" required>
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+      <label for="phone">Phone</label>
+      <input type="text" id="phone" name="phone" placeholder="Enter your phone number" required>
+
+      <label for="serviceNeeded">Service Needed</label>
+      <select id="serviceNeeded" name="serviceNeeded" required>
+        <option value="">Select a service</option>
+        <option value="Credit Repair">Credit Repair</option>
+        <option value="Business Setup">Business Setup</option>
+        <option value="Business Funding">Business Funding</option>
+        <option value="Automation">Automation</option>
+        <option value="Platform Setup">Platform Setup</option>
+        <option value="Consultation">Consultation</option>
+        <option value="Custom Service">Custom Service</option>
+      </select>
+
+      <label for="creditScore">Estimated Credit Score</label>
+      <input type="text" id="creditScore" name="creditScore" placeholder="Example: 650">
+
+      <label for="fundingAmount">Funding Amount Needed</label>
+      <input type="text" id="fundingAmount" name="fundingAmount" placeholder="Example: 25000">
+
+      <label for="notes">Notes</label>
+      <textarea id="notes" name="notes" placeholder="Add any details that help explain your situation"></textarea>
+
+      <div class="buttons" style="margin-top: 12px;">
+        <button type="submit" class="button" id="submit-btn">Submit Intake</button>
+        <a href="index.html" class="btn-secondary">Return Home</a>
+      </div>
+
+      <p id="status-message" class="status-message"></p>
+    </form>
+  </div>
+
+  <div class="footer">© Johnson Strategic Solutions</div>
+
+  <script src="load-navbar.js"></script>
+  <script>
+    const intakeForm = document.getElementById("intake-form");
+    const submitBtn = document.getElementById("submit-btn");
+    const statusMessage = document.getElementById("status-message");
+
+    intakeForm.addEventListener("submit", function () {
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Submitting...";
+      statusMessage.textContent = "Sending your intake...";
+    });
+  </script>
+</body>
+</html>
   <div id="navbar" data-navbar="navbar-public.html"></div>
 
   <div class="form-card">
