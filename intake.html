@@ -6,36 +6,24 @@
   <title>Johnson Strategic Solutions | Client Intake</title>
   <link rel="stylesheet" href="styles.css">
 </head>
-<body><!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Johnson Strategic Solutions | Client Intake</title>
-  <link rel="stylesheet" href="styles.css">
-</head>
 <body>
   <div id="navbar" data-navbar="navbar-public.html"></div>
 
-  <div class="form-card">
-    <h2 class="center">Client Intake Form</h2>
+  <main class="form-card">
+    <h1 class="center mt-0">Client Intake Form</h1>
     <p class="center">
-      Fill out this form so we can review your situation and move forward.
+      Submit your details so Johnson Strategic Solutions can review your situation, assign the correct service path, and prepare the next step.
     </p>
 
-    <form
-      id="intake-form"
-      action="https://script.google.com/macros/s/AKfycbzH82fTtqq-skhhQ1jXMvfHoSdIY3OpugYlY1CQkFT3bpT3NkP8PPBUAS9ZzoWrjq38Hg/exec"
-      method="POST"
-    >
+    <form id="intake-form" novalidate>
       <label for="fullName">Full Name</label>
-      <input type="text" id="fullName" name="fullName" placeholder="Enter your full name" required>
+      <input type="text" id="fullName" name="fullName" placeholder="Enter your full name" autocomplete="name" required>
 
       <label for="email">Email</label>
-      <input type="email" id="email" name="email" placeholder="Enter your email" required>
+      <input type="email" id="email" name="email" placeholder="Enter your email" autocomplete="email" required>
 
       <label for="phone">Phone</label>
-      <input type="text" id="phone" name="phone" placeholder="Enter your phone number" required>
+      <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" autocomplete="tel">
 
       <label for="serviceNeeded">Service Needed</label>
       <select id="serviceNeeded" name="serviceNeeded" required>
@@ -43,7 +31,7 @@
         <option value="Credit Repair">Credit Repair</option>
         <option value="Business Setup">Business Setup</option>
         <option value="Business Funding">Business Funding</option>
-        <option value="Automation">Automation</option>
+        <option value="Automation / AI Systems">Automation / AI Systems</option>
         <option value="Platform Setup">Platform Setup</option>
         <option value="Consultation">Consultation</option>
         <option value="Custom Service">Custom Service</option>
@@ -55,125 +43,80 @@
       <label for="fundingAmount">Funding Amount Needed</label>
       <input type="text" id="fundingAmount" name="fundingAmount" placeholder="Example: 25000">
 
-      <label for="notes">Notes</label>
-      <textarea id="notes" name="notes" placeholder="Add any details that help explain your situation"></textarea>
+      <label for="businessStatus">Business Status</label>
+      <select id="businessStatus" name="businessStatus">
+        <option value="">Select current status</option>
+        <option value="No business yet">No business yet</option>
+        <option value="LLC formed">LLC formed</option>
+        <option value="EIN obtained">EIN obtained</option>
+        <option value="Business bank account open">Business bank account open</option>
+        <option value="Already generating revenue">Already generating revenue</option>
+      </select>
 
-      <div class="buttons" style="margin-top: 12px;">
+      <label for="notes">Situation / Notes</label>
+      <textarea id="notes" name="notes" placeholder="Explain your situation, goals, credit issues, funding needs, or platform objectives."></textarea>
+
+      <div class="buttons" style="margin-top: 14px;">
         <button type="submit" class="button" id="submit-btn">Submit Intake</button>
         <a href="index.html" class="btn-secondary">Return Home</a>
       </div>
 
-      <p id="status-message" class="status-message"></p>
+      <p id="status-message" class="status-message" role="status" aria-live="polite"></p>
     </form>
-  </div>
+  </main>
 
   <div class="footer">© Johnson Strategic Solutions</div>
 
   <script src="load-navbar.js"></script>
   <script>
-    const intakeForm = document.getElementById("intake-form");
+    const SCRIPT_ENDPOINT = "https://script.google.com/macros/s/AKfycbzH82fTtqq-skhhQ1jXMvfHoSdIY3OpugYlY1CQkFT3bpT3NkP8PPBUAS9ZzoWrjq38Hg/exec";
+
+    const form = document.getElementById("intake-form");
     const submitBtn = document.getElementById("submit-btn");
     const statusMessage = document.getElementById("status-message");
 
-    intakeForm.addEventListener("submit", function () {
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+
       submitBtn.disabled = true;
       submitBtn.textContent = "Submitting...";
       statusMessage.textContent = "Sending your intake...";
+
+      const formData = new URLSearchParams(new FormData(form));
+      formData.append("source", "ReaperAI Website");
+      formData.append("submittedAt", new Date().toISOString());
+
+      try {
+        const response = await fetch(SCRIPT_ENDPOINT, {
+          method: "POST",
+          body: formData
+        });
+
+        let result = {};
+        try {
+          result = await response.json();
+        } catch (parseError) {
+          result = { success: response.ok };
+        }
+
+        if (response.ok && result.success !== false) {
+          window.location.href = "thank-you.html";
+          return;
+        }
+
+        throw new Error("Submission rejected by intake endpoint.");
+      } catch (error) {
+        statusMessage.textContent = "Network error. Please try again or contact support directly.";
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Submit Intake";
+        console.error("Intake submission error:", error);
+      }
     });
   </script>
-</body>
-</html>
-  <div id="navbar" data-navbar="navbar-public.html"></div>
-
-  <div class="form-card">
-    <h2 class="center">Client Intake Form</h2>
-    <p class="center">Fill out this form so we can review your situation and move forward.</p>
-
-    <form id="intake-form">
-      <input type="hidden" name="_subject" value="New Johnson Strategic Solutions Intake Submission">
-
-      <label>Full Name</label>
-      <input type="text" name="Full Name" required>
-
-      <label>Email</label>
-      <input type="email" name="Email" required>
-
-      <label>Phone</label>
-      <input type="text" name="Phone">
-
-      <label>Service Needed</label>
-      <select name="Service Needed">
-        <option>Credit Repair</option>
-        <option>Business Setup</option>
-        <option>Business Funding</option>
-        <option>Automation / AI Systems</option>
-        <option>Platform Setup</option>
-        <option>Consultation</option>
-      </select>
-
-      <label>Estimated Credit Score</label>
-      <input type="text" name="Estimated Credit Score">
-
-      <label>Funding Amount Needed</label>
-      <input type="text" name="Funding Amount Needed">
-
-      <label>Notes</label>
-      <textarea name="Notes"></textarea>
-
-      <div class="button-row">
-        <button type="submit" class="button" id="submit-btn">Submit Intake</button>
-        <a href="index.html" class="btn-secondary">Return Home</a>
-      </div>
-
-      <div class="status-message" id="status-message"></div>
-    </form>
-  </div>
-
-  <div class="footer">© Johnson Strategic Solutions</div>
-
-  <script src="load-navbar.js"></script>
-<script>
-const form = document.getElementById("intake-form");
-const statusMessage = document.getElementById("status-message");
-const submitBtn = document.getElementById("submit-btn");
-
-form.addEventListener("submit", async function(event) {
-  event.preventDefault();
-
-  submitBtn.disabled = true;
-  submitBtn.textContent = "Submitting...";
-  statusMessage.textContent = "Sending your intake...";
-
-  const params = new URLSearchParams();
-  params.append("fullName", form.querySelector('[name="Full Name"]').value);
-  params.append("email", form.querySelector('[name="Email"]').value);
-  params.append("phone", form.querySelector('[name="Phone"]').value);
-  params.append("serviceNeeded", form.querySelector('[name="Service Needed"]').value);
-  params.append("creditScore", form.querySelector('[name="Estimated Credit Score"]').value);
-  params.append("fundingAmount", form.querySelector('[name="Funding Amount Needed"]').value);
-  params.append("notes", form.querySelector('[name="Notes"]').value);
-
-  try {
-    const response = await fetch("https://script.google.com/macros/s/AKfycbzH82fTtqq-skhhQ1jXMvfHoSdIY3OpugYlY1CQkFT3bpT3NkP8PPBUAS9ZzoWrjq38Hg/exec", {
-      method: "POST",
-      body: params
-    });
-
-    const result = await response.json();
-
-    if (result.success) {
-      window.location.href = "thank-you.html";
-    } else {
-      statusMessage.textContent = "Submission failed. Please try again.";
-      submitBtn.disabled = false;
-      submitBtn.textContent = "Submit Intake";
-    }
-  } catch (error) {
-    statusMessage.textContent = "Network error. Please try again.";
-    submitBtn.disabled = false;
-    submitBtn.textContent = "Submit Intake";
-  }
-});
-</script>
 </body>
 </html>
