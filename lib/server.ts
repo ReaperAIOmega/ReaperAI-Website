@@ -1,10 +1,10 @@
 import {env} from 'cloudflare:workers';
-import {getChatGPTUser} from '@/app/chatgpt-auth';
+import {getClientUser} from '@/lib/client-auth';
 export const config=()=>env as unknown as Record<string,any>;
 export function db(){const v=config().DB as D1Database;if(!v)throw new Error('Storage is temporarily unavailable. Please try again.');return v;}
 export function bucket(){const v=config().BUCKET as R2Bucket;if(!v)throw new Error('Document storage is temporarily unavailable.');return v;}
 export class ApiError extends Error{constructor(public status:number,message:string){super(message)}}
-export async function actor(){const u=await getChatGPTUser();if(!u)throw new ApiError(401,'Sign in to continue.');const allow=String(config().OWNER_EMAILS||'').split(',').map(v=>v.trim().toLowerCase()).filter(Boolean);return {...u,admin:allow.includes(u.email.toLowerCase())};}
+export async function actor(){const u=await getClientUser();if(!u)throw new ApiError(401,'Sign in to continue.');const allow=String(config().OWNER_EMAILS||'').split(',').map(v=>v.trim().toLowerCase()).filter(Boolean);return {...u,admin:allow.includes(u.email.toLowerCase())};}
 export async function admin(){const u=await actor();if(!u.admin)throw new ApiError(403,'This workspace is restricted to the operator.');return u;}
 export function safeMutation(r:Request){const origin=r.headers.get('origin');if(origin&&origin!==new URL(r.url).origin)throw new ApiError(403,'Cross-site request rejected.');if(r.headers.get('sec-fetch-site')==='cross-site')throw new ApiError(403,'Cross-site request rejected.');}
 export function ok(data:unknown,status=200){return Response.json(data,{status,headers:{'Cache-Control':'no-store','X-Content-Type-Options':'nosniff'}})}

@@ -2,10 +2,28 @@
 
 User requirement: no OpenAI or ChatGPT branding or account requirement in the client experience.
 
-The /login route is a prepared JSS email-code sign-in screen. It is intentionally disabled and does not collect or send credentials. It is not wired into the live portal yet. The current authenticated portal remains protected by its existing identity checks until a complete replacement is verified.
+## Implemented
 
-Activation requires a connected independent identity provider (Supabase connection requested), verified branded email sender, and a confirmed independent hosting/domain path. Sites dispatch-owned authentication and the host interface must not be disguised by renaming their controls. A custom domain alone does not replace authentication.
+JSS email-code sign-in and explicit new-account registration, code entry and resend, same-origin logout, secure HttpOnly host-only cookies, and provider-verified server identity. Portal, intake, operator access, and every existing case/document/payment API now use the independent identity adapter. No application flow calls the previous ChatGPT sign-in route. Existing case IDs are not automatically relinked by email.
 
-Before switching: implement provider-verified server sessions, secure HttpOnly cookies, expiration and revocation, provider rate limits, CSRF protection, same-origin redirects, and signed-out/loading/error states. Replace identity reads in portal, intake, admin and every API; never accept a client-supplied email as proof of identity. Keep operator authorization server-side. Existing case ownership IDs require an explicit verified account-linking process, not automatic email matching.
+The adapter uses Supabase Auth HTTP APIs, with credentials supplied by runtime SUPABASE_URL and SUPABASE_PUBLISHABLE_KEY. It sends no emails until AUTH_EMAIL_READY=true. Provider rate limits apply. Sessions last at most one hour (or the shorter provider expiry); this version requires email reauthentication after expiration instead of keeping refresh tokens. Logout clears the browser cookie and attempts provider session logout. As with bearer access tokens generally, copied tokens may remain valid until their short expiry; do not claim global immediate revocation.
 
-Verify first registration, returning login, wrong/expired/reused codes, logout, independent client isolation, operator access, and upload/payment ownership before publishing the new authentication flow. Keep live payments disabled until the separate payment acceptance gates pass.
+## Connected project
+
+The connected reaperai-platform project was inactive. Restoration was requested through Supabase. Restoration must reach ACTIVE_HEALTHY before activation. No new paid project was created. The publishable key was retrieved without printing or committing it. No real OTP email was sent during development.
+
+## Activation
+
+Verify and configure the email provider, JSS sender name, and the Magic Link email template to include {{ .Token }}. The connector available in this session does not expose auth configuration or SMTP updates. The default Supabase mail service is restricted to team addresses and is unsuitable for public clients; do not enable this flow without verifying production SMTP.
+
+Set SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY and AUTH_EMAIL_READY only after the template and sender are verified. Configure provider code expiration, rate limits and abuse protection. Use an independently hosted HTTPS origin on the business domain for the client release. Sites-hosted review remains subject to host-owned access controls and interface; replacing app authentication does not remove that host layer.
+
+Existing case ownership values use the old identity namespace. New identities use supabase:<verified provider user ID>. Any data migration must explicitly verify account linkage and preserve its audit trail. Operator access still requires a verified email in the server allowlist.
+
+## Verification
+
+28 existing workflow integration checks passed with the test-only identity shim updated. Twelve authentication scenarios passed against mocked provider responses: request origin checks, disabled service, invalid email/code, registration choice, verified secure cookie, anonymous/invalid/unconfirmed identities, identity namespace, and logout. No credentials are returned to browser JavaScript. Actual provider OTP delivery, duplicate/expired code rejection, signed-in browser behavior, sender branding and domain routing still require acceptance testing. Do not present mocked tests as live acceptance.
+
+Official references:
+https://supabase.com/docs/guides/auth/auth-email-passwordless
+https://supabase.com/docs/guides/auth/auth-smtp
