@@ -1,0 +1,13 @@
+import {createRequire} from 'node:module';
+import assert from 'node:assert/strict';
+const require=createRequire(import.meta.resolve('wrangler/package.json'));
+await require('esbuild').build({entryPoints:['lib/domain.ts'],bundle:true,platform:'node',format:'esm',outfile:'.sites-runtime/tests/domain.mjs'});
+const {verifyStripe}=await import('../.sites-runtime/tests/domain.mjs');
+const raw='{"type":"checkout.session.completed","id":"evt_synthetic"}',secret='synthetic-webhook-secret';
+const time=Math.floor(Date.now()/1000);const key=await crypto.subtle.importKey('raw',new TextEncoder().encode(secret),{name:'HMAC',hash:'SHA-256'},false,['sign']);const bytes=await crypto.subtle.sign('HMAC',key,new TextEncoder().encode(`${time}.${raw}`));const sig=Buffer.from(bytes).toString('hex');const header=`t=${time},v1=${sig}`;
+assert.equal(await verifyStripe(raw,header,secret),true);
+assert.equal(await verifyStripe(raw+'x',header,secret),false);
+assert.equal(await verifyStripe(raw,header,secret,Date.now()+601000),false);
+assert.equal(await verifyStripe(raw,header,'wrong'),false);
+assert.equal(await verifyStripe(raw,'v1='+sig,secret),false);
+console.log('RESULT 5 signature checks passed: valid, tampered, expired, wrong secret, missing timestamp.');
