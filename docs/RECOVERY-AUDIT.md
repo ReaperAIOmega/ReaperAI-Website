@@ -16,7 +16,21 @@ Reviewed September 11, 2026. This is a source-grounded recovery record, not a cl
 | REAPER_JARVIS_Production_2.0_Audit_Dossier.pdf, September 7, 2026 | Desktop engineering audit; reports 10 passing checks and one knowledge-index failure. Desktop voice and UI work is distinct from this hosted client backend. |
 | REAPER JARVIS Consolidated Production Release Engineering Report | Recovered as a separate historical artifact; not proof of a current client-service production deployment. |
 
-Duplicates of the ROS document and audit dossier were found. Their presence is not evidence of distinct deployed versions. The connected Google Drive and Stripe apps were reported connected during this work, but their callable account tools were not exposed in this execution registry. The Stripe CLI was also absent. No account configuration or live product verification is claimed.
+Duplicates of the ROS document and audit dossier were found. Their presence is not evidence of distinct deployed versions.
+
+## Connected-account verification
+
+Google Drive and Stripe account tools became available later in this session and were inspected read-only on September 11, 2026.
+
+- The only accessible Stripe context is the Johnson Strategic Solutions sandbox (test mode). It contains Consultation, Funding Blueprint, and Custom Service Deposit products. No webhook endpoints are registered in that sandbox. A live account, runtime API credential, and offer eligibility have not been verified.
+- The sandbox deposit description explicitly includes credit repair. Do not reuse that generic deposit for this release. No products or prices were changed, and no customers were charged.
+- The newer JSS Intake Crm spreadsheet has Intakes and Clients tabs. The bounded reads returned five intake rows and three client rows. The earlier JSS Intake CRM spreadsheet returned only its Intakes header within the inspected range. These are historical operational records, not proof of paid clients.
+- One newer Clients row has values shifted relative to the header from the Stage column onward. One intake is marked Duplicate, and another contact uses a placeholder-looking email. Preserve the originals and reconcile these issues before migration or reminders.
+- No historical client data was imported into the new portal. Existing spreadsheet emails do not establish ownership of a new authenticated account; any migration must link clients through verified identity and preserve the source record and audit history. Client personal data is deliberately excluded from this repository.
+
+## Published review release
+
+The owner-private review site is published at https://rosv4-command.aibobby.chatgpt.site. The first certificate provisioning attempt failed; the subsequent deployment succeeded. Payment collection and email delivery remain disabled. This is an operational review release, not a publicly accessible client launch or a verified live revenue flow.
 
 ## Concrete defects in the previous public website
 
