@@ -1,0 +1,4 @@
+import {LoginForm} from './login/form';
+import {authConfig} from '@/lib/client-auth';
+export function Header(){return <header className="topbar"><a className="brand" href="/"><span className="mark">J</span><span>JOHNSON<span className="brand-sub">STRATEGIC SOLUTIONS</span></span></a><nav><a href="/services">Services</a><a href="/intake">Assessment</a><a href="/portal">Client portal</a><a href="/admin">ROSv4</a></nav></header>}
+export function SignIn({to='/portal'}:{to?:string}){return <><Header/><div className="panel sign-box"><span className="eyebrow">JOHNSON STRATEGIC SOLUTIONS</span><h1 className="detail-title">Your client workspace.</h1><p className="muted">Sign in to view your assessment, share documents, and track your next steps.</p><LoginForm ready={authConfig().ready} to={to}/></div></>}
