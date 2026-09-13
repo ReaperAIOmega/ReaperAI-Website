@@ -4,7 +4,7 @@
 
 Open /admin using the configured operator email. A new client signs in at /intake, completes the form, and receives a rules-based readiness brief in /portal. Client identifiers use the hosting authentication subject, not a client-supplied email.
 
-The operator reviews evidence and moves an eligible business-funding case to scope_approved, entering a specific written scope, deliverables, timing, and cancellation terms. The client accepts that exact scope version. Only then can the separately activated checkout create a $300 order. Generic credit-service deposits are intentionally absent.
+The operator reviews evidence and moves an eligible business-funding case to scope_approved, entering a specific written scope, deliverables, timing, and cancellation terms. The client accepts that exact scope version. The operator enters an individual USD price with the written scope. Only after the client accepts that version can separately activated checkout create an order for the exact quoted amount. Generic credit-service deposits are intentionally absent.
 
 Verified payment creates an editable working draft, not an unreviewed final recommendation. Edit and save the draft, attest to evidence/scope review, and release it. The client sees released content only. Released records are immutable in this release; additional revisions need a new document version workflow rather than overwriting client history.
 
