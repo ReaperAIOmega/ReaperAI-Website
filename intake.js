@@ -1,12 +1,7 @@
-import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
-
-const SUPABASE_URL = 'https://itswbmjvuxumfjqkkqgx.supabase.co';
-const SUPABASE_PUBLISHABLE_KEY = 'sb_publishable_lgBKt5K8CQCPSC-MaC7s6g_M2iTdWEN';
-const supabase = createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY);
-
 const form = document.getElementById('intake-form');
 const submitBtn = document.getElementById('submit-btn');
 const statusMessage = document.getElementById('status-message');
+const INTAKE_ENDPOINT = 'https://itswbmjvuxumfjqkkqgx.supabase.co/functions/v1/submit-intake';
 
 const parseInteger = (value) => {
   if (!value) return null;
@@ -28,9 +23,6 @@ form?.addEventListener('submit', async (event) => {
     return;
   }
 
-  const honeypot = document.getElementById('companyWebsite');
-  if (honeypot?.value) return;
-
   submitBtn.disabled = true;
   submitBtn.textContent = 'Submitting...';
   statusMessage.textContent = 'Sending your intake securely...';
@@ -50,19 +42,33 @@ form?.addEventListener('submit', async (event) => {
     credit_score_estimate: parseInteger(document.getElementById('creditScore').value),
     funding_amount_needed: parseMoney(document.getElementById('fundingAmount').value),
     notes: combinedNotes || null,
-    source: 'website',
-    status: 'new',
+    companyWebsite: document.getElementById('companyWebsite')?.value || '',
   };
 
-  const { error } = await supabase.from('intakes').insert(payload);
+  try {
+    const response = await fetch(INTAKE_ENDPOINT, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+    });
+    const body = await response.json().catch(() => ({}));
 
-  if (error) {
+    if (!response.ok || !body.ok) {
+      if (response.status === 429) {
+        statusMessage.textContent = 'Too many intake attempts were received. Please wait before trying again.';
+      } else {
+        statusMessage.textContent = 'We could not submit your intake. Please review your entries and try again.';
+      }
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Submit Intake';
+      return;
+    }
+
+    window.location.href = 'thank-you.html';
+  } catch (error) {
     console.error('Intake submission error:', error);
-    statusMessage.textContent = 'We could not submit your intake. Please try again or contact support.';
+    statusMessage.textContent = 'The secure intake service is temporarily unavailable. Please try again.';
     submitBtn.disabled = false;
     submitBtn.textContent = 'Submit Intake';
-    return;
   }
-
-  window.location.href = 'thank-you.html';
 });
