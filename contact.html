@@ -1,38 +1,38 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Reaper AI - Contact</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        body { font-family: Arial; margin: 0; background: #0a0a0a; color: white; }
-        header, footer { background: black; text-align: center; padding: 20px; }
-        nav { text-align: center; padding: 15px; background: #111; }
-        nav a { color: #4da6ff; margin: 15px; text-decoration: none; font-size: 18px; }
-        .container { max-width: 700px; margin: auto; padding: 40px 20px; }
-        form { background: #111; padding: 25px; border-radius: 10px; }
-        input, textarea { width: 100%; padding: 12px; margin-bottom: 15px; border: none; border-radius: 6px; }
-        button { background: #4da6ff; color: black; padding: 12px 20px; border: none; font-weight: bold; border-radius: 6px; }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contact Johnson Strategic Solutions about business infrastructure, funding readiness, automation, platform setup, or an existing client engagement.">
+  <title>Contact | Johnson Strategic Solutions</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<header>Reaper AI</header>
-<nav>
-    <a href="index.html">Home</a>
-    <a href="services.html">Services</a>
-    <a href="pricing.html">Pricing</a>
-    <a href="intake.html">Client Intake</a>
-    <a href="contact.html">Contact</a>
-    <a href="login.html">Login</a>
-</nav>
-<div class="container">
-    <h1>Contact</h1>
-    <form>
-        <input type="text" placeholder="Your Name">
-        <input type="email" placeholder="Your Email">
-        <textarea rows="6" placeholder="Your Message"></textarea>
-        <button type="submit">Send Message</button>
+  <div id="navbar" data-navbar="navbar-public.html"></div>
+  <main class="form-card">
+    <h1 class="center mt-0">Contact Johnson Strategic Solutions</h1>
+    <p class="center">Send a general business inquiry. Existing clients should use the secure client portal for documents or case-specific information.</p>
+    <form id="contact-form" novalidate>
+      <label for="contact-name">Full Name</label>
+      <input id="contact-name" type="text" autocomplete="name" maxlength="120" required>
+      <label for="contact-email">Email</label>
+      <input id="contact-email" type="email" autocomplete="email" maxlength="254" required>
+      <label for="contact-phone">Phone</label>
+      <input id="contact-phone" type="tel" autocomplete="tel" maxlength="40">
+      <label for="contact-subject">Subject</label>
+      <input id="contact-subject" type="text" maxlength="160" placeholder="How can we help?">
+      <label for="contact-message">Message</label>
+      <textarea id="contact-message" rows="7" maxlength="5000" required placeholder="Describe what you need. Do not include passwords, account credentials, Social Security numbers, API keys, or other secrets."></textarea>
+      <div aria-hidden="true" style="position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden;">
+        <label for="companyWebsite">Company Website</label>
+        <input id="companyWebsite" type="text" tabindex="-1" autocomplete="off">
+      </div>
+      <button id="contact-submit" type="submit" class="button">Send secure inquiry</button>
+      <p id="contact-status" class="status-message" role="status" aria-live="polite"></p>
     </form>
-</div>
-<footer>© Reaper AI</footer>
+  </main>
+  <div class="footer">© Johnson Strategic Solutions · <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a></div>
+  <script src="load-navbar.js"></script>
+  <script type="module" src="contact.js"></script>
 </body>
 </html>
