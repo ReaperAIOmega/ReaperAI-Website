@@ -38,6 +38,7 @@ form?.addEventListener('submit', async (event) => {
     full_name: document.getElementById('fullName').value.trim(),
     email: document.getElementById('email').value.trim().toLowerCase(),
     phone: document.getElementById('phone').value.trim() || null,
+    state: document.getElementById('state').value,
     service_type: document.getElementById('serviceNeeded').value,
     credit_score_estimate: parseInteger(document.getElementById('creditScore').value),
     funding_amount_needed: parseMoney(document.getElementById('fundingAmount').value),
@@ -56,6 +57,8 @@ form?.addEventListener('submit', async (event) => {
     if (!response.ok || !body.ok) {
       if (response.status === 429) {
         statusMessage.textContent = 'Too many intake attempts were received. Please wait before trying again.';
+      } else if (body.error === 'valid_state_required') {
+        statusMessage.textContent = 'Select your state of residence before submitting.';
       } else {
         statusMessage.textContent = 'We could not submit your intake. Please review your entries and try again.';
       }
