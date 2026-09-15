@@ -38,10 +38,10 @@
       </select>
 
       <label for="creditScore">Estimated Credit Score</label>
-      <input type="text" id="creditScore" name="creditScore" placeholder="Example: 650">
+      <input type="text" id="creditScore" name="creditScore" placeholder="Example: 650" inputmode="numeric">
 
       <label for="fundingAmount">Funding Amount Needed</label>
-      <input type="text" id="fundingAmount" name="fundingAmount" placeholder="Example: 25000">
+      <input type="text" id="fundingAmount" name="fundingAmount" placeholder="Example: 25000" inputmode="decimal">
 
       <label for="businessStatus">Business Status</label>
       <select id="businessStatus" name="businessStatus">
@@ -56,6 +56,11 @@
       <label for="notes">Situation / Notes</label>
       <textarea id="notes" name="notes" placeholder="Explain your situation, goals, credit issues, funding needs, or platform objectives."></textarea>
 
+      <div aria-hidden="true" style="position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden;">
+        <label for="companyWebsite">Company Website</label>
+        <input type="text" id="companyWebsite" name="companyWebsite" tabindex="-1" autocomplete="off">
+      </div>
+
       <div class="buttons" style="margin-top: 14px;">
         <button type="submit" class="button" id="submit-btn">Submit Intake</button>
         <a href="index.html" class="btn-secondary">Return Home</a>
@@ -68,55 +73,6 @@
   <div class="footer">© Johnson Strategic Solutions</div>
 
   <script src="load-navbar.js"></script>
-  <script>
-    const SCRIPT_ENDPOINT = "https://script.google.com/macros/s/AKfycbzH82fTtqq-skhhQ1jXMvfHoSdIY3OpugYlY1CQkFT3bpT3NkP8PPBUAS9ZzoWrjq38Hg/exec";
-
-    const form = document.getElementById("intake-form");
-    const submitBtn = document.getElementById("submit-btn");
-    const statusMessage = document.getElementById("status-message");
-
-    form.addEventListener("submit", async (event) => {
-      event.preventDefault();
-
-      if (!form.checkValidity()) {
-        form.reportValidity();
-        return;
-      }
-
-      submitBtn.disabled = true;
-      submitBtn.textContent = "Submitting...";
-      statusMessage.textContent = "Sending your intake...";
-
-      const formData = new URLSearchParams(new FormData(form));
-      formData.append("source", "ReaperAI Website");
-      formData.append("submittedAt", new Date().toISOString());
-
-      try {
-        const response = await fetch(SCRIPT_ENDPOINT, {
-          method: "POST",
-          body: formData
-        });
-
-        let result = {};
-        try {
-          result = await response.json();
-        } catch (parseError) {
-          result = { success: response.ok };
-        }
-
-        if (response.ok && result.success !== false) {
-          window.location.href = "thank-you.html";
-          return;
-        }
-
-        throw new Error("Submission rejected by intake endpoint.");
-      } catch (error) {
-        statusMessage.textContent = "Network error. Please try again or contact support directly.";
-        submitBtn.disabled = false;
-        submitBtn.textContent = "Submit Intake";
-        console.error("Intake submission error:", error);
-      }
-    });
-  </script>
+  <script type="module" src="intake.js"></script>
 </body>
 </html>
