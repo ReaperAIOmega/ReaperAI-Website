@@ -3,36 +3,29 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Johnson Strategic Solutions | Client Login</title>
+  <title>Johnson Strategic Solutions | Secure Sign In</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <div id="navbar" data-navbar="navbar-public.html"></div>
 
   <div class="form-card" style="max-width: 460px; margin-top: 120px;">
-    <h2 class="center">Client Login</h2>
+    <h2 class="center">Secure Client Sign In</h2>
     <p class="center">
-      Access your client dashboard, portal, documents, and account updates.
+      Enter the email attached to your Johnson Strategic Solutions account. We will send a secure one-time sign-in link.
     </p>
 
-    <form action="https://portal.reaperai.com/dashboard.html" method="GET">
-      <label>Email</label>
-      <input type="email" name="email" placeholder="Enter your email" required>
+    <form id="login-form">
+      <label for="login-email">Email</label>
+      <input id="login-email" type="email" name="email" placeholder="Enter your email" autocomplete="email" required>
 
-      <label>Password</label>
-      <input type="password" name="password" placeholder="Enter your password" required>
-
-      <button type="submit" class="button" style="width: 100%;">Login</button>
+      <button id="login-submit" type="submit" class="button" style="width: 100%;">Send secure sign-in link</button>
+      <p id="login-status" class="status-message" role="status" aria-live="polite" style="margin-top:16px;"></p>
     </form>
-
-    <div class="button-row" style="margin-top: 18px;">
-      <a href="https://portal.reaperai.com/dashboard.html" class="button">Go To Client Dashboard</a>
-      <a href="https://portal.reaperai.com/client-portal.html" class="btn-secondary">Open Client Portal</a>
-    </div>
 
     <div class="center" style="margin-top: 18px;">
       <a href="intake.html" style="display:block; margin-top:8px; color:#7fb8ff; text-decoration:none;">
-        Not a client yet? Start here
+        Not a client yet? Start with intake
       </a>
     </div>
   </div>
@@ -40,5 +33,6 @@
   <div class="footer">© Johnson Strategic Solutions</div>
 
   <script src="load-navbar.js"></script>
+  <script type="module" src="auth-login.js"></script>
 </body>
 </html>
