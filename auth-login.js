@@ -3,6 +3,11 @@ import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js
 const SUPABASE_URL = 'https://itswbmjvuxumfjqkkqgx.supabase.co';
 const SUPABASE_PUBLISHABLE_KEY = 'sb_publishable_lgBKt5K8CQCPSC-MaC7s6g_M2iTdWEN';
 
+const params = new URLSearchParams(window.location.search);
+if (params.get('next') === 'admin') {
+  window.location.replace('https://admin.reaperai.com/login.html');
+}
+
 const supabase = createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY, {
   auth: {
     persistSession: true,
@@ -15,11 +20,7 @@ const form = document.getElementById('login-form');
 const emailInput = document.getElementById('login-email');
 const submitButton = document.getElementById('login-submit');
 const status = document.getElementById('login-status');
-const params = new URLSearchParams(window.location.search);
-const destination = params.get('next') === 'admin' ? 'admin' : 'portal';
-const redirectTo = destination === 'admin'
-  ? 'https://admin.reaperai.com/'
-  : 'https://portal.reaperai.com/';
+const redirectTo = 'https://portal.reaperai.com/';
 
 form?.addEventListener('submit', async (event) => {
   event.preventDefault();
