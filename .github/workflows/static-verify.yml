@@ -16,3 +16,5 @@ jobs:
           node-version: 22
       - name: Verify static application
         run: node scripts/verify-static.mjs
+      - name: Verify launch offer boundaries
+        run: node --test scripts/verify-launch-offers.test.mjs
