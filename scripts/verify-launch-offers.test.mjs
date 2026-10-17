@@ -36,3 +36,11 @@ test('homepage and service page label credit material informational', async () =
     assert.match(html, /Consumer Credit Information/i);
   }
 });
+
+test('navigation and terms identify consumer credit as information only until clearance', async () => {
+  const nav = await load('navbar-public.html');
+  const terms = await load('terms.html');
+  assert.match(nav, /Credit Information/);
+  assert.doesNotMatch(nav, /Credit Services/);
+  assert.match(terms, /not currently available through this platform/);
+});
