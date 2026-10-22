@@ -1,0 +1,27 @@
+name: Public Credit Resource Safeguards
+on:
+  pull_request:
+    paths:
+      - 'credit-self-help.html'
+      - 'credit-repair.html'
+      - 'index.html'
+      - 'services.html'
+      - 'navbar-public.html'
+      - 'pricing.html'
+      - 'intake.html'
+      - 'intake.js'
+      - 'scripts/check-public-scope.mjs'
+      - '.github/workflows/credit-resource-check.yml'
+  workflow_dispatch:
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify provider-neutral public resources
+        run: node scripts/check-public-scope.mjs

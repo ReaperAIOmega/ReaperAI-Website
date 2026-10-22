@@ -40,7 +40,7 @@ form?.addEventListener('submit', async (event) => {
     phone: document.getElementById('phone').value.trim() || null,
     state: document.getElementById('state').value,
     service_type: document.getElementById('serviceNeeded').value,
-    credit_score_estimate: parseInteger(document.getElementById('creditScore').value),
+    credit_score_estimate: null, // no consumer credit data collected through business intake
     funding_amount_needed: parseMoney(document.getElementById('fundingAmount').value),
     notes: combinedNotes || null,
     companyWebsite: document.getElementById('companyWebsite')?.value || '',
