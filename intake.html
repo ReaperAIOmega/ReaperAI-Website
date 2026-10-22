@@ -12,7 +12,7 @@
   <main class="form-card">
     <h1 class="center mt-0">Client Intake Form</h1>
     <p class="center">
-      This intake is for business setup, independent written advisory and technology services only. For consumer credit-report questions, use the <a href="credit-self-help.html">free self-help resources</a>; individualized consumer credit repair is not currently accepting Georgia clients.
+      Use this form for business services or to <strong>request a state-specific consumer credit eligibility review</strong>. A credit inquiry is not an enrollment, agreement, or approval to begin credit repair. Georgia residents can use our <a href="credit-self-help.html">free credit self-help resources</a>; personalized Georgia credit-repair inquiries are currently unavailable. Other states are subject to their own laws and eligibility review.
     </p>
 
     <form id="intake-form" novalidate>
@@ -50,12 +50,14 @@
         <option value="Business Funding">Business Funding</option>
         <option value="Automation / AI Systems">Automation / AI Systems</option>
         <option value="Platform Setup">Platform Setup</option>
+        <option value="Credit Repair Inquiry" id="credit-inquiry-option">Credit Repair — Eligibility Inquiry Only</option>
       </select>
+      <p id="credit-jurisdiction-message" role="status" aria-live="polite"></p>
 
       <!-- Credit score input intentionally omitted from general business intake.
            Sensitive personal credit work requires a separately authorized flow. -->
 
-      <label for="fundingAmount">Business Funding Objective (optional; informational)</label>
+      <label for="fundingAmount">Business Funding Objective (optional; informational, not needed for credit inquiries)</label>
       <input type="text" id="fundingAmount" name="fundingAmount" placeholder="Example: 25000" inputmode="decimal">
 
       <label for="businessStatus">Business Status</label>
@@ -69,7 +71,7 @@
       </select>
 
       <label for="notes">Situation / Notes</label>
-      <textarea id="notes" name="notes" placeholder="Explain your business, operational goals, proposed deliverables, or platform objectives. Do not enter personal credit-report details here."></textarea>
+      <textarea id="notes" name="notes" placeholder="Briefly describe your business goal or credit-service inquiry. Do not submit account numbers, Social Security numbers, credit reports, or passwords."></textarea>
 
       <div aria-hidden="true" style="position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden;">
         <label for="companyWebsite">Company Website</label>
