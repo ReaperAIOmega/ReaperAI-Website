@@ -1,10 +1,10 @@
 // Read-only release acceptance: compare exact public HTTP bytes against this checkout.
 import { readFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
+import { publicParityPaths } from './public-parity-paths.mjs';
 const digest = (bytes) => createHash('sha256').update(bytes).digest('hex');
-const pages = ['index.html', 'services.html', 'pricing.html', 'funding.html', 'intake.html', 'intake.js', 'credit-self-help.html', 'privacy.html', 'terms.html'];
 let failures = 0;
-for (const path of pages) {
+for (const path of publicParityPaths) {
   const expected = readFileSync(new URL('../' + path, import.meta.url));
   const url = new URL(path, 'https://reaperai.com/');
   let status = 'request_failed', liveHash = 'unavailable', finalUrl = '';
@@ -22,13 +22,14 @@ for (const path of pages) {
     status = error?.name || 'request_failed';
   }
   const expectedHash = digest(expected);
-  const matches = status === '200' && liveHash === expectedHash;
-  console.log(JSON.stringify({ path, status, expected_sha256: expectedHash, live_sha256: liveHash, matches, final_url: finalUrl }));
+  const sameOrigin = Boolean(finalUrl && new URL(finalUrl).origin === url.origin);
+  const matches = status === '200' && sameOrigin && liveHash === expectedHash;
+  console.log(JSON.stringify({ path, status, expected_sha256: expectedHash, live_sha256: liveHash, same_origin: sameOrigin, matches, final_url: finalUrl }));
   if (!matches) failures++;
 }
 if (failures) {
-  console.error('RELEASE HOLD: ' + failures + ' public files could not be verified against this source commit. Verify domain, CDN and deployment provenance; do not treat indexed content as live-byte proof.');
+  console.error('RELEASE HOLD: ' + failures + ' public files could not be verified against this source commit and canonical origin. Verify domain, CDN and deployment provenance; do not treat indexed content as live-byte proof.');
   process.exitCode = 1;
 } else {
-  console.log('All public source files matched the independently retrieved live HTTP bytes.');
+  console.log('All public source files matched the independently retrieved live HTTP bytes at the canonical origin.');
 }
