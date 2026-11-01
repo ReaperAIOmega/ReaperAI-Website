@@ -1,0 +1,21 @@
+// Explicit public-release parity inventory. Include client-side imports and navigation,
+// not just the HTML entrypoints, so stale scripts cannot pass the release gate.
+export const publicParityPaths = Object.freeze([
+  'index.html',
+  'services.html',
+  'pricing.html',
+  'funding.html',
+  'intake.html',
+  'intake.js',
+  'funding-objective.mjs',
+  'navbar-public.html',
+  'load-navbar.js',
+  'credit-self-help.html',
+  'credit-repair.html',
+  'privacy.html',
+  'terms.html',
+  'contact.html',
+  'contact.js',
+  'security.html',
+  'styles.css',
+]);
