@@ -1,3 +1,4 @@
+import { parseFundingObjective } from './funding-objective.mjs';
 const form = document.getElementById('intake-form');
 const submitBtn = document.getElementById('submit-btn');
 const statusMessage = document.getElementById('status-message');
@@ -9,17 +10,20 @@ const parseInteger = (value) => {
   return Number.isFinite(number) ? number : null;
 };
 
-const parseMoney = (value) => {
-  if (!value) return null;
-  const number = Number(String(value).replace(/[^0-9.]/g, ''));
-  return Number.isFinite(number) ? number : null;
-};
-
 form?.addEventListener('submit', async (event) => {
   event.preventDefault();
 
   if (!form.checkValidity()) {
     form.reportValidity();
+    return;
+  }
+
+  let fundingAmountNeeded;
+  try {
+    fundingAmountNeeded = parseFundingObjective(document.getElementById('fundingAmount').value);
+  } catch {
+    statusMessage.textContent = 'Enter a positive funding objective in dollars (for example, 25000 or 25,000.00), or leave it blank.';
+    document.getElementById('fundingAmount').focus();
     return;
   }
 
@@ -41,7 +45,7 @@ form?.addEventListener('submit', async (event) => {
     state: document.getElementById('state').value,
     service_type: document.getElementById('serviceNeeded').value,
     credit_score_estimate: null, // no consumer credit data collected through business intake
-    funding_amount_needed: parseMoney(document.getElementById('fundingAmount').value),
+    funding_amount_needed: fundingAmountNeeded,
     notes: combinedNotes || null,
     companyWebsite: document.getElementById('companyWebsite')?.value || '',
   };
