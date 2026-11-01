@@ -16,3 +16,5 @@ jobs:
           node-version: 22
       - name: Verify static application
         run: node scripts/verify-static.mjs
+      - name: Verify free credit scope and written-only offer
+        run: node scripts/check-public-scope.mjs && node scripts/check-written-launch.mjs
